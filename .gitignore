@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+# Java class files
+*.class
+
+# Eclipse project files
+.classpath
+.project
+.metadata
+.settings
