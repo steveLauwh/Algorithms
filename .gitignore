@@ -39,3 +39,7 @@
 .project
 .metadata
 .settings
+
+# IntelliJ files
+.idea
+*.iml
