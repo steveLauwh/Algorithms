@@ -8,6 +8,8 @@ package com.sort.selectionsort;
 
 public class SelectionSort {
 
+  private SelectionSort() {}
+   
   public static void sort(int[] arr) {
       int arrLength = arr.length;
       
