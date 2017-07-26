@@ -10,6 +10,7 @@ void shellsort(T arr[], int n)
 {
     int gap = 1;
     
+    // gap = 1, 4, 13, 40.....
     while (gap < n / 3)
     {
         gap = gap * 3 + 1;  // 步长 gap
