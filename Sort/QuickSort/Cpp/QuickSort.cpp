@@ -5,6 +5,7 @@
  * 非稳定排序
  * 递归思想
  * 核心：如何 partition 操作， 写 partition 功能，先画图分析好，再写代码
+ * 归并排序和快速排序中，当小规模的数组时，使用插入排序优化
  */
 #include <iostream>
 
@@ -72,18 +73,10 @@ int partition2(T arr[], int low, int high)
         }
     }
   
-    // 这里为什么跟 arr[j] 交换
+    // 这里为什么跟 arr[j] 交换，因为此时arr[j]是小于e
     swap(arr[low], arr[j]);
     
     return j;
-}
-
-/* partition3：三路快排, 三个索引 */
-// Quick Sort Three Ways
-template <typename T>
-int partition3(T arr[], int low, int high)
-{
-
 }
 
 // 对 arr[low....high] 快排
