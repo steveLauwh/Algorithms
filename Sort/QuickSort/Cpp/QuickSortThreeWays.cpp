@@ -11,42 +11,44 @@ using namespace std;
 template <typename T>
 void quickSortThreeWays(T arr[], int low, int high)
 {
-    // 下面是 partition 操作
-    // 1. 选取第一个元素为基准
-    T e = arr[low];
- 
-    // 2. 初始化三个索引, 范围里不包含元素
-    int left = low;        // arr[low+1...left] < v
-    int right = high + 1;  // arr[right...high] > v
-    int i = left + 1;      // arr[left+1...i) == v
- 
-    // 3. 遍历
-    while (i < right)
+    if (low < high)   // 特别注意，必须有限制，否则递归死循环
     {
-        if (arr[i] < e)
+        // 下面是 partition 操作
+        // 1. 选取第一个元素为基准
+        T e = arr[low];
+
+        // 2. 初始化三个索引, 范围里不包含元素
+        int left = low;        // arr[low+1...left] < v
+        int right = high + 1;  // arr[right...high] > v
+        int i = left + 1;      // arr[left+1...i) == v
+
+        // 3. 遍历
+        while (i < right)
         {
-            swap(arr[left+1], arr[i]);
-            left++;
-            i++;
+            if (arr[i] < e)
+            {
+                swap(arr[left+1], arr[i]);
+                left++;
+                i++;
+            }
+            else if (arr[i] > e)
+            {
+                swap(arr[right-1], arr[i]);
+                right--;
+            }
+            else {   // arr[i] == v
+                i++;
+            }
         }
-        else if (arr[i] > e)
-        {
-            swap(arr[right-1], arr[i]);
-            right--;
-        }
-        else {   // arr[i] == v
-            i++;
-        }
-    }
-    
-    /* 4. arr[low]为e, 与 arr[left] 交换, 因为此时 arr[left] < e; 
-          交换后可以保持 arr[low...left-1] < e, arr[left...right-1] == e, arr[right...high] > e
-     */
-    swap(arr[low], arr[left]);
- 
-    quickSortThreeWays(arr, low, left - 1);
-    quickSortThreeWays(arr, right, high); 
-    
+
+        /* 4. arr[low]为e, 与 arr[left] 交换, 因为此时 arr[left] < e; 
+              交换后可以保持 arr[low...left-1] < e, arr[left...right-1] == e, arr[right...high] > e
+         */
+        swap(arr[low], arr[left]);
+
+        quickSortThreeWays(arr, low, left - 1);
+        quickSortThreeWays(arr, right, high); 
+    }   
 }
 
 int main()
