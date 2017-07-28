@@ -54,7 +54,7 @@ int partition2(T arr[], int low, int high)
     int i = low + 1;
     int j = high;
   
-    while (i <= j)
+    while (i < j)
     {
         while (i <= high && arr[i] < e)
         {
@@ -65,7 +65,7 @@ int partition2(T arr[], int low, int high)
             j--;
         }
         
-        if (i < j)  // 注意: i 和 j 在做递增和递减
+        if (i <= j)  // 注意: i 和 j 在做递增和递减, 特别注意
         {
             swap(arr[i], arr[j]);
             i++;
