@@ -21,7 +21,7 @@ public class QuickSort {
         int e = arr[low];
       
         // 2. 初始化基准索引 pivotIndex
-        int pivotIndex = low;  // arr[low+1...pivotIndex] < v ; arr[pivotIndex+1...i) > v
+        int pivotIndex = low;  // arr[low+1...pivotIndex] < e ; arr[pivotIndex+1...i) > e
         
         // 3. 遍历
         for (int i = low + 1; i <= high; i++)
