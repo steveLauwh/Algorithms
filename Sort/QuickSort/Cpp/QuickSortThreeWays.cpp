@@ -18,9 +18,9 @@ void quickSortThreeWays(T arr[], int low, int high)
         T e = arr[low];
 
         // 2. 初始化三个索引, 范围里不包含元素
-        int left = low;        // arr[low+1...left] < v
-        int right = high + 1;  // arr[right...high] > v
-        int i = left + 1;      // arr[left+1...i) == v
+        int left = low;        // arr[low+1...left] < e
+        int right = high + 1;  // arr[right...high] > e
+        int i = left + 1;      // arr[left+1...i) == e
 
         // 3. 遍历
         while (i < right)
