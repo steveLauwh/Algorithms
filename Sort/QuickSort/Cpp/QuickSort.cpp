@@ -54,7 +54,7 @@ int partition2(T arr[], int low, int high)
     int i = low + 1;
     int j = high;
   
-    while (i < j)
+    while (i <= j)
     {
         while (i <= high && arr[i] < e)
         {
