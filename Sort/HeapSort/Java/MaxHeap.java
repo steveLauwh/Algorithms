@@ -62,7 +62,7 @@ public class MaxHeap {
   private void shiftDown(int i) {
       while (2*i <= count) {
           int j = 2*i;
-          if (j+1 <= count && data[j+1] > data[j]) {
+          if (j + 1 <= count && data[j+1] > data[j]) {
               j++;
           }
           
