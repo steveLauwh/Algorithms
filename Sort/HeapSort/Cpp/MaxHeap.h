@@ -48,7 +48,7 @@ private:
 public:
     MaxHeap(int capacity)
     {
-        data = new Item[cpacity + 1];
+        data = new Item[capacity + 1];
         this->capacity = capacity;
         count = 0;
     }
@@ -112,23 +112,6 @@ public:
         shiftDown(1);
       
         return ret;
-    }
-
-public:
-    void printMaxHeap()
-    {
-        if (typeid(Item) != typeid(int))
-        {
-            cout << "The print function used int type!" << endl;
-            return;
-        }
-           
-        for (int i = 1; i <= size(); i++)
-        {
-            cout << data[i] << " ";
-        }
-        
-        cout << endl;
     }
 };
 
