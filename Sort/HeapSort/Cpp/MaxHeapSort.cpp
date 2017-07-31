@@ -1,5 +1,7 @@
 #include <iostream>
 #include "MaxHeap.h"
+#include <ctime>
+#include <cmath>
 
 using namespace std;
 
@@ -40,11 +42,21 @@ void heapSort2(T arr[], int n)
 
 int main()
 {
+    srand(time(NULL));
     int arr[] = {2, 5, 10, 9, 16, 19, 42, 37, 3, 1};
     
     int arrLength = sizeof(arr) / sizeof(arr[0]);
     
-    heapSort1(arr, arrLength);
+    if (rand() % 2 == 0)
+    {
+        cout << "heapSort1: " << " ";
+        heapSort1(arr, arrLength);
+    }
+    else
+    {
+        heapSort2(arr, arrLength);
+    }
+    
   
     for (int i = 0; i <arrLength; i++)
     {
