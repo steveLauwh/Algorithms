@@ -63,12 +63,11 @@ public class MaxHeap {
       while (2*i <= count) {
           int j = 2*i;
           if (j+1 <= count && data[j+1] > data[j]) {
-              swap(j, j+1);  // data[j+1] > data[j]
               j++;
           }
           
           // 否则 data[j] > data[j+1], 同时父节点大于最大的子节点，直接退出
-          if (data[i] >= data[j]) {
+          if (data[i] > data[j]) {
               break;
           }
           
@@ -94,6 +93,5 @@ public class MaxHeap {
       shiftDown(1);
     
       return ret;
-  }
-  
+  }  
 }
