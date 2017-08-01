@@ -69,7 +69,7 @@ public class MinHeap {
                 break;
             }
             
-            swap(data[i], data[j]);
+            swap(i, j);
           
             i = j;
         }
