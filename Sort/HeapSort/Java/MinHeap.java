@@ -8,7 +8,7 @@ public class MinHeap {
     public MinHeap(int capacity) {
         data = new int[capacity + 1];
         count = 0;
-        this->capacity = capacity;
+        this.capacity = capacity;
     }
   
     // 构造函数, 通过一个给定数组创建一个最小堆, heapify过程
