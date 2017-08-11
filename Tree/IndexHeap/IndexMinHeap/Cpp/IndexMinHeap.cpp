@@ -90,7 +90,7 @@ public:
     {
         assert(count > 0);
       
-        T ret = data[index[1]]; // 最大元素
+        T ret = data[index[1]]; // 最小元素
         // 调整存储索引的堆
         swap(index[1], index[count]);
         count--;
@@ -120,7 +120,7 @@ public:
         return data[index[1]];
     }
   
-    // 从索引堆中取出最大元素对应的索引
+    // 从索引堆中取出最小元素对应的索引
     int getMinIndex()
     {
         assert(count > 0);
@@ -128,7 +128,7 @@ public:
         return index[1] - 1;
     }
      
-    // 获取最大索引堆中索引为i的元素
+    // 获取最小索引堆中索引为i的元素
     T getItem(int i)
     {
         assert(i + 1 >= 1 && i + 1 <= capacity);
