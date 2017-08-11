@@ -123,7 +123,7 @@ public:
     // 从索引堆中取出最大元素对应的索引
     int getMaxIndex()
     {
-        assertt(count > 0);
+        assert(count > 0);
         
         return index[1] - 1;
     }
