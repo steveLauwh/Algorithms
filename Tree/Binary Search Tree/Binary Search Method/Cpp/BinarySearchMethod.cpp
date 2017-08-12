@@ -68,7 +68,7 @@ int main()
 {
     srand(time(NULL));
 
-    int arr[] = {2, 5, 10, 9, 16, 19, 42, 37, 3, 1};
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
     int arrLength = sizeof(arr) / sizeof(arr[0]);
 
