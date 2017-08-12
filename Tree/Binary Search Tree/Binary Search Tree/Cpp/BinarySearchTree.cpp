@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stack>
 
 using namespace std;
 
@@ -60,6 +61,24 @@ public:
     bool search(Value value)
     {
         return recursionSearch(root, value);
+    }
+    
+    // 前序遍历 preOrder
+    void preOrder()
+    {
+        recursionPreOrder(root);
+    }
+    
+    // 中序遍历 inOrder
+    void inOrder()
+    {
+        recursionInOrder(root);
+    }
+    
+    // 后序遍历 postOrder
+    void postOrder()
+    {
+        recursionPostOrder(root);
     }
     
     
@@ -191,6 +210,46 @@ private:
         return false;
     }
     
+    // preOrder 内部使用递归实现
+    void recursionPreOrder(BSTNode *node)
+    {
+        if (node)
+        {
+            cout << node->value << endl;
+            recursionPreOrder(node->left);
+            recursionPreOrder(node->right);
+        }
+    }
+    
+    // preOrder 内部使用非递归实现，这里借用栈结构
+    void nonrecursionPreOrder(BSTNode *node)
+    {
+        if (!node)
+        {
+            return;
+        }
+        
+        stack<BSTNode*> s;
+        s.push(node);  // 当前节点进栈
+        
+        while (!s.empty())  // 栈不为空
+        {
+            BSTNode *current = s.top();   
+            cout << current->value << endl;
+            
+            s.pop();  // 先把当前节点出栈
+            
+            if (current->right) // 先右孩子节点进栈
+            {
+                s.push(current->right);
+            }
+            
+            if (current->left) // 再左孩子节点进栈
+            {
+                s.push(current->left);
+            }
+        }        
+    }
 };
 
 int main()
