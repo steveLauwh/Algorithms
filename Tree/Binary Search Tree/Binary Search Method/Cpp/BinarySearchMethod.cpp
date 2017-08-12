@@ -8,7 +8,7 @@ using namespace std;
 
 /* 迭代实现
  * 二分查找法：找到 target, 返回相应的索引 index; 没找到, 返回 -1.
- * 在  arr[low...high] 中查找 target
+ * 在  arr[low...high] 中查找 target 
  */
 template <typename T>
 int binarySearch_Iteration(T arr[], int n, int target)
