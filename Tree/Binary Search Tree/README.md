@@ -22,6 +22,22 @@
 * 使用递归，可以方便处理
 * 链式结构，每个节点有一个键和关联的值
 
+```cpp
+// 二叉搜索树的节点
+struct BSTNode
+{
+    Value value;
+    BSTNode *left;
+    BSTNode *right;
+
+    BSTNode(Value value)
+    {
+        this->value = value;
+        this->left = this->right = NULL;
+    }        
+};
+```
+
 |         | 查找元素 |  插入元素  | 删除元素|
 | --------| :-----: | :----:  |:----:  |
 | 普通数组 | O(n) |  O(n) |O(n)|
@@ -37,6 +53,91 @@
 结合二叉搜索树的特点，对于第一个要存入的值，设置为根节点；当插入节点的值小于根节点的值，将其移动到左子树上，与左孩子节点比较；当插入节点的值大于根节点的值，将其移动到右子树上，与右孩子节点比较。
 
 插入新节点操作有 递归 和 非递归 两种实现方式。
+
+**递归版的插入**
+
+```cpp
+// insert 内部使用递归实现
+BSTNode* recursionInsertNode(BSTNode *node, Value value)
+{
+    if (!node)
+    {
+        count++;
+        return new BSTNode(value);
+    }
+
+    if (value < node->value)  // 待插入节点的值小于当前节点的值
+    {
+        node->left = recursionInsertNode(node->left, value);
+    }
+    else if (value > node->value) // 待插入节点的值大于当前节点的值
+    {
+        node->right = recursionInsertNode(node->right, value);
+    }
+    else
+    {
+        //node->value = value; // 已存在
+        cout << "insert the element is exist!" << endl;
+    }
+
+    return node;
+}
+```
+
+**非递归版的插入**
+```cpp
+// insert 内部使用非递归实现
+BSTNode* nonrecursionInsertNode(BSTNode *node, Value value)
+{
+    if (!node)
+    {
+        count++;
+        return new BSTNode(value);
+    }
+
+    BSTNode *bstNode = node; // 保证函数返回是二叉搜索树的根节点
+
+    while (bstNode)
+    {
+        // 待插入节点的值小于当前节点的值
+        if (value < bstNode->value)
+        {
+            if (!(bstNode->left))
+            {
+                count++;
+                bstNode->left = new BSTNode(value);
+                break;
+            }
+            else
+            {
+                bstNode = bstNode->left;
+            }              
+        }
+        else if (value > bstNode->value)         // 待插入节点的值大于当前节点的值
+        {
+            if (!(bstNode->right))
+            {
+                count++;
+                bstNode->right = new BSTNode(value);
+                break;
+            }
+            else
+            {
+                bstNode = bstNode->right;
+            }
+        }
+        else
+        {
+            //bstNode->value = value;
+            cout << "insert the element is exist!" << endl;
+            break;
+        }
+    }
+
+    return node;
+}
+```
+
 
 ### 二叉搜索树—查找
 
