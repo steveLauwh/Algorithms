@@ -25,6 +25,7 @@ private:
     int count;     // 树的节点个数
   
 public:
+    
     // 构造函数, 默认构造一棵空二叉搜索树
     BST()
     {
@@ -55,7 +56,7 @@ public:
         root = recursionInsertNode(root, value);
     }
     
-    // 查找二叉搜索树中是否存在键值为value, search 操作
+    // 查找 search 操作：查找二叉搜索树中是否存在键值为value
     bool search(Value value)
     {
         return recursionSearch(root, value);
@@ -63,6 +64,7 @@ public:
     
     
 private:
+    
     // insert 内部使用递归实现
     BSTNode* recursionInsertNode(BSTNode *node, Value value)
     {
