@@ -284,6 +284,12 @@ void nonrecursionPreOrder(BSTNode *node)
 
 > **后序遍历「postOrder」**
 
+左-->右-->根
+
+递归方式：先递归访问左右子树，再访问自身节点。
+
+非递归方式：
+
 > **层序遍历「levelOrder」**
 
 ### 二叉搜索树—应用
