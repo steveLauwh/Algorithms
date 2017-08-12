@@ -274,5 +274,7 @@ int main()
     
     cout << bst.search(12) << endl;
     
+    bst.preOrder();
+    
     return 0;
 }
