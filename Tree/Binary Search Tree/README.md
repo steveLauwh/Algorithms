@@ -138,8 +138,67 @@ BSTNode* nonrecursionInsertNode(BSTNode *node, Value value)
 }
 ```
 
+### 二叉搜索树—查找「search」
 
-### 二叉搜索树—查找
+查找是查找某一个节点是否在二叉搜索树中，如果存在，返回 true，否则 false。
+
+查找操作有 递归 和 非递归 两种实现方式。
+
+查找 和 包含 操作本质是一样的。
+
+**递归版的查找**
+```cpp
+// search 内部使用递归实现
+bool recursionSearch(BSTNode *node, Value value)
+{
+    if (!node)
+    {
+        return false;
+    }
+
+    if (node->value == value)
+    {
+        return true;
+    }
+    else if (value < node->value)
+    {
+        return recursionSearch(node->left, value);
+    }
+    else
+    {
+        return recursionSearch(node->right, value);
+    }
+}
+```
+**非递归版的查找**
+```cpp
+// search 内部使用非递归实现
+bool nonrecursionSearch(BSTNode *node, Value value)
+{
+    if (!node)
+    {
+        return false;
+    }
+
+    while (node)
+    {
+        if (node->value == value)
+        {
+            return true;
+        }
+        else if (value < node->value)
+        {
+            node = node->left;
+        }
+        else
+        {
+            node = node->right;
+        }
+    }
+
+    return false;
+}
+```
 
 ### 二叉搜索树—删除
 
