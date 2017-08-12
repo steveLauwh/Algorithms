@@ -85,6 +85,7 @@ BSTNode* recursionInsertNode(BSTNode *node, Value value)
 ```
 
 **非递归版的插入**
+
 ```cpp
 // insert 内部使用非递归实现
 BSTNode* nonrecursionInsertNode(BSTNode *node, Value value)
@@ -147,6 +148,7 @@ BSTNode* nonrecursionInsertNode(BSTNode *node, Value value)
 查找 和 包含 操作本质是一样的。
 
 **递归版的查找**
+
 ```cpp
 // search 内部使用递归实现
 bool recursionSearch(BSTNode *node, Value value)
@@ -170,7 +172,9 @@ bool recursionSearch(BSTNode *node, Value value)
     }
 }
 ```
+
 **非递归版的查找**
+
 ```cpp
 // search 内部使用非递归实现
 bool nonrecursionSearch(BSTNode *node, Value value)
@@ -208,7 +212,75 @@ bool nonrecursionSearch(BSTNode *node, Value value)
 
 > **前序遍历「preOrder」**
 
+`根-->左-->右`
+
+递归方式：先访问当前节点，再依次递归访问左子树和右子树。
+
+非递归方式：为了把一个递归过程改为非递归过程，就需要自己维护一个辅助栈(队列)结构，记录遍历时的回退路径。
+
+```cpp
+stack<BSTNode*> s;
+s.empty(); // 当前堆栈为空，返回true，否则不为空，返回 false
+```
+
+**递归版的前序遍历**
+
+```cpp
+// preOrder 内部使用递归实现
+void recursionPreOrder(BSTNode *node)
+{
+    if (node)
+    {
+        cout << node->value << endl;
+        recursionPreOrder(node->left);
+        recursionPreOrder(node->right);
+    }
+}
+```
+
+**非递归版的前序遍历**
+
+首先让根节点进栈，只要栈不为空，就可以做弹出操作，每次弹出一个结点，记得把它的左右结点都进栈，由于栈是先进后出，前序遍历是根左右遍历，那么右子树先进栈，这样可以保证右子树在栈中总处于左子树的下面。
+
+```cpp
+// preOrder 内部使用非递归实现，这里借用栈结构
+void nonrecursionPreOrder(BSTNode *node)
+{
+    if (!node)
+    {
+        return;
+    }
+
+    stack<BSTNode*> s;
+    s.push(node);  // 当前节点进栈
+
+    while (!s.empty())  // 栈不为空
+    {
+        BSTNode *current = s.top();   
+        cout << current->value << endl;
+
+        s.pop();  // 先把当前节点出栈
+
+        if (current->right) // 先右孩子节点进栈
+        {
+            s.push(current->right);
+        }
+
+        if (current->left) // 再左孩子节点进栈
+        {
+            s.push(current->left);
+        }
+    }        
+}
+```
+
 > **中序遍历「inOrder」**
+
+左-->根-->右
+
+递归方式：先递归访问左子树，再访问自身，再递归访问右子树。
+
+非递归方式：
 
 > **后序遍历「postOrder」**
 
