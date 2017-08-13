@@ -240,7 +240,7 @@ void recursionPreOrder(BSTNode *node)
 
 **非递归版的前序遍历**
 
-首先让根节点进栈，只要栈不为空，就可以做弹出操作，每次弹出一个结点，记得把它的左右结点都进栈，由于栈是先进后出，前序遍历是根左右遍历，那么右子树先进栈，这样可以保证右子树在栈中总处于左子树的下面。
+首先让根节点进栈，只要栈不为空，就可以做弹出操作，每次弹出一个结点，记得把它的左右结点都进栈，由于栈是先进后出，前序遍历是根左右遍历，那么右子树先进栈，再左子树进栈，这样可以保证右子树在栈中总处于左子树的下面。
 
 ```cpp
 // preOrder 内部使用非递归实现，这里借用栈结构
@@ -280,7 +280,56 @@ void nonrecursionPreOrder(BSTNode *node)
 
 递归方式：先递归访问左子树，再访问自身，再递归访问右子树。
 
-非递归方式：
+非递归方式：借助栈结构，首先把根节点入栈，当有左子树，一直循环，入栈；然后栈顶元素(最左边的左子树)弹出，然后把指针指向栈顶元素的右子树，当栈顶元素有右子树，就入栈，否则再弹出栈顶元素...
+
+**递归版的中序遍历**
+
+```cpp
+// inOrder 内部使用递归实现
+void recursionInOrder(BSTNode *node)
+{
+    if (node)
+    {
+        recursionInOrder(node->left);
+        cout << node->value << endl;
+        recursionInOrder(node->right);
+    }
+}
+```
+
+**非递归版的中序遍历**
+
+```cpp
+// inOrder 内部使用非递归实现，借用栈结构
+void nonrecursionInOrder(BSTNode *node)
+{
+    if (!node)
+    {
+        return;
+    }
+
+    BSTNode *current = node;
+    stack<BSTNode*> s;
+
+    while (current || !s.empty())
+    {
+        while (current)  // 一直循环入左子树
+        {
+            s.push(current);
+            current = current->left;
+        }
+
+        if (!s.empty())
+        {
+            current = s.top();
+            cout << current->value << endl;
+            s.pop();
+
+            current = current->right;  // 关键地方，最左边的左子树(当前节点)，需要判断该当前节点是否有右子树节点
+        }
+    }
+}
+```
 
 > **后序遍历「postOrder」**
 
@@ -288,16 +337,172 @@ void nonrecursionPreOrder(BSTNode *node)
 
 递归方式：先递归访问左右子树，再访问自身节点。
 
-非递归方式：
+非递归方式：可以在中序非递归遍历上改进，也可以利用双栈法，由于根节点是最后访问的节点，所以把根节点最先入栈2，栈1作为中间栈，栈2是存储经过后序遍历完的元素。
+
+**递归版的后序遍历**
+
+```cpp
+// postOrder 内部使用递归实现
+void recursionPostOrder(BSTNode *node)
+{
+    if (node)
+    {
+        recursionPostOrder(node->left);
+        recursionPostOrder(node->right);
+        cout << node->value << endl;
+    }
+}
+```
+
+**非递归版的后序遍历**
+
+```cpp
+// postOrder 内部使用非递归实现，双栈法
+void nonrecursionPostOrder(BSTNode *node)
+{
+    if (!node)
+    {
+        return;
+    }
+
+    stack<BSTNode*> s1, s2;
+    BSTNode *current = node;
+    s1.push(node);
+
+    while (!s1.empty())
+    {
+        current = s1.top();
+        s1.pop();
+        s2.push(current);
+
+        if (current->left)
+        {
+            s1.push(current->left);
+        }
+        if (current->right)
+        {
+            s1.push(current->right);
+        }
+    }
+
+    while(!s2.empty())
+    {
+        cout << s2.top()->value << endl;
+        s2.pop();
+    }       
+}
+```
 
 > **层序遍历「levelOrder」**
+
+借用队列 queue 结构，先根节点入队列，然后出列，再将根节点的左节点入列，右节点入列，依次……
+
+```cpp
+// 层序遍历，利用队列结构
+void levelOrder(BSTNode *node)
+{
+    queue<BSTNode*> q;
+
+    q.push(node);
+
+    while (!q.empty())
+    {
+        BSTNode *current = q.front();  //指向队列的顶端
+        q.pop();
+
+        cout << current->value << endl;
+
+        if (current->left)
+        {
+            q.push(current->left);
+        }
+        if (current->right)
+        {
+            q.push(current->right);
+        }
+    }
+}
+```
 
 ### 二叉搜索树—应用
 
 > **查找二叉搜索树中的最小值**
 
+一直向左遍历，直到为当前节点的左子树为空，则当前节点为最小值。
+
+```cpp
+// 查找二叉搜索树中的最小值
+Value minimum()
+{
+    assert(count != 0);
+
+    BSTNode *node = minimum(root);
+
+    return node->value;
+}
+
+// 查找二叉搜索树的最小值所在节点
+BSTNode* minimum(BSTNode *node)
+{
+    if (node->left)
+    {
+        return minimum(node->left);
+    }
+
+    return node;
+}
+```
+
 > **查找二叉搜索树中的最大值**
+
+一直向右遍历，直到为当前节点的右子树为空，则当前节点为最大值。
+
+```cpp
+
+// 查找二叉搜索树中的最大值
+Value maximum()
+{
+    assert(count != 0);
+
+    BSTNode *node = maximum(root);
+
+    return node->value;
+}
+
+// 查找二叉搜索树的最大值所在节点
+BSTNode* maximum(BSTNode *node)
+{
+    if (node->right)
+    {
+        return maximum(node->right);
+    }
+
+    return node;
+}
+```
 
 > **删除二叉搜索树中的最小值**
 
 > **删除二叉搜索树中的最大值**
+
+> **删除二叉搜索树中的所有节点**
+
+后序遍历的应用——销毁二叉搜索树
+
+递归，先删掉左子树节点，再删掉右子树节点，最后删掉当前节点。
+
+```cpp
+// 利用后序遍历来销毁二叉搜索树
+void destroy(BSTNode *node)
+{
+    if (node)
+    {
+        destroy(node->left);
+        destroy(node->right);
+
+        delete node;         
+        count--;
+    }
+}
+```
+
