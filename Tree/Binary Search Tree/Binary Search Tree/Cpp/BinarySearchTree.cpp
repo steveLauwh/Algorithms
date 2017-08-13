@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stack>
+#include <queue>
 
 using namespace std;
 
@@ -250,17 +251,106 @@ private:
             }
         }        
     }
+    
+    // inOrder 内部使用递归实现
+    void recursionInOrder(BSTNode *node)
+    {
+        if (node)
+        {
+            recursionInOrder(node->left);
+            cout << node->value << endl;
+            recursionInOrder(node->right);
+        }
+    }
+    
+    // inOrder 内部使用非递归实现，借用栈结构
+    void nonrecursionInOrder(BSTNode *node)
+    {
+        if (!node)
+        {
+            return;
+        }
+        
+        BSTNode *current = node;
+        stack<BSTNode*> s;
+        
+        while (current || !s.empty())
+        {
+            while (current)
+            {
+                s.push(current);
+                current = current->left; // 一直向左遍历，直到为空
+            }
+            
+            if (!s.empty())
+            {
+                current = s.top();
+                cout << current->value << endl;
+                s.pop();
+                
+                current = current->right;  // 关键地方，最左边的左子树(当前节点)，需要判断该当前节点是否有右子树节点
+            }
+        }
+    }
+    
+    // postOrder 内部使用递归实现
+    void recursionPostOrder(BSTNode *node)
+    {
+        if (node)
+        {
+            recursionPostOrder(node->left);
+            recursionPostOrder(node->right);
+            cout << node->value << endl;
+        }
+    }
+    
+    // postOrder 内部使用非递归实现，双栈法
+    void nonrecursionPostOrder(BSTNode *node)
+    {
+        if (!node)
+        {
+            return;
+        }
+        
+        stack<BSTNode*> s1, s2;
+        BSTNode *current = node;
+        s1.push(node);
+        
+        while (!s1.empty())
+        {
+            current = s1.top();
+            s1.pop();
+            s2.push(current);
+            
+            if (current->left)
+            {
+                s1.push(current->left);
+            }
+            if (current->right)
+            {
+                s1.push(current->right);
+            }
+        }
+        
+        while(!s2.empty())
+        {
+            cout << s2.top()->value << endl;
+            s2.pop();
+        }       
+    }
 };
 
 int main()
 {
-    int arr[100];
+    int arr[] = {28, 16, 30, 13, 22, 29, 42};
+    
+    int arrLength = sizeof(arr) / sizeof(arr[0]);
     
     BST<int> bst = BST<int>();
     
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < arrLength; i++)
     {
-        arr[i] = i;
+        //arr[i] = i;
         bst.insert(arr[i]);
     }
     
@@ -275,6 +365,8 @@ int main()
     cout << bst.search(12) << endl;
     
     bst.preOrder();
+    bst.inOrder();
+    bst.postOrder();
     
     return 0;
 }
