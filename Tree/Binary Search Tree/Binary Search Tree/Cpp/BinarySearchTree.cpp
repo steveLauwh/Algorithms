@@ -408,7 +408,7 @@ private:
     {
         if (node->left)
         {
-            minimum(node->left);
+            return minimum(node->left);
         }
         
         return node;
@@ -419,7 +419,7 @@ private:
     {
         if (node->right)
         {
-            maximum(node->right);
+            return maximum(node->right);
         }
         
         return node;
