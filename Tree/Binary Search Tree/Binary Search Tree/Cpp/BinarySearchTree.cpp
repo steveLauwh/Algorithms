@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stack>
 #include <queue>
+#include <cassert>
 
 using namespace std;
 
@@ -37,7 +38,7 @@ public:
 
     ~BST()
     {
-
+        destroy(root); // 释放所有的节点
     }
 
     // 返回二叉搜索树的节点个数
@@ -82,6 +83,31 @@ public:
         recursionPostOrder(root);
     }
     
+    // 层序遍历 levelOrder
+    void levelOrder()
+    {
+        levelOrder(root);
+    }
+    
+    // 查找二叉搜索树中的最小值
+    Value minimum()
+    {
+        assert(count != 0);
+        
+        BSTNode *node = minimum(root);
+        
+        return node->value;
+    }
+    
+    // 查找二叉搜索树中的最大值
+    Value maximum()
+    {
+        assert(count != 0);
+        
+        BSTNode *node = maximum(root);
+        
+        return node->value;
+    }
     
 private:
     
@@ -314,7 +340,7 @@ private:
         
         stack<BSTNode*> s1, s2;
         BSTNode *current = node;
-        s1.push(node);
+        s1.push(node);  // 根节点入栈
         
         while (!s1.empty())
         {
@@ -338,6 +364,67 @@ private:
             s2.pop();
         }       
     }
+    
+    // 层序遍历，利用队列结构
+    void levelOrder(BSTNode *node)
+    {
+        queue<BSTNode*> q;
+        
+        q.push(node);
+        
+        while (!q.empty())
+        {
+            BSTNode *current = q.front();  //指向队列的顶端
+            q.pop();
+            
+            cout << current->value << endl;
+            
+            if (current->left)
+            {
+                q.push(current->left);
+            }
+            if (current->right)
+            {
+                q.push(current->right);
+            }
+        }
+    }
+    
+    // 利用后序遍历来销毁二叉搜索树
+    void destroy(BSTNode *node)
+    {
+        if (node)
+        {
+            destroy(node->left);
+            destroy(node->right);
+            
+            delete node;         
+            count--;
+        }
+    }
+    
+    // 查找二叉搜索树的最小值所在节点
+    BSTNode* minimum(BSTNode *node)
+    {
+        if (node->left)
+        {
+            minimum(node->left);
+        }
+        
+        return node;
+    }
+         
+    // 查找二叉搜索树的最大值所在节点
+    BSTNode* maximum(BSTNode *node)
+    {
+        if (node->right)
+        {
+            maximum(node->right);
+        }
+        
+        return node;
+    }
+    
 };
 
 int main()
@@ -364,9 +451,21 @@ int main()
     
     cout << bst.search(12) << endl;
     
+    cout << "preOrder: " << endl;
     bst.preOrder();
+    
+    cout << "inOrder: " << endl;
     bst.inOrder();
+    
+    cout << "postOrder: " << endl;
     bst.postOrder();
+    
+    cout << "levelOrder: " << endl;
+    bst.levelOrder();
+    
+    cout << "maximum: " << bst.maximum() << endl;
+
+    cout << "minimum: " << bst.minimum() << endl;
     
     return 0;
 }
