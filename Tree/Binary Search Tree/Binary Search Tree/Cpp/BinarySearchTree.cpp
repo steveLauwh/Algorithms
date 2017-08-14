@@ -21,7 +21,14 @@ private:
         {
             this->value = value;
             this->left = this->right = NULL;
-        }        
+        }
+        
+        BSTNode(BSTNode *node)
+        {
+            this->value = node->value;
+            this->left = node->left;
+            this->right = node->right;
+        }
     };
     
     BSTNode *root; // 根节点
@@ -125,6 +132,12 @@ public:
         {
             root = recursionremoveMax(root);  // 删除最大值节点后，返回根节点
         }
+    }
+    
+    // 删除二叉搜索树中的任意节点
+    void remove(Value value)
+    {
+        root = remove(root, value);
     }
     
 private:
@@ -589,6 +602,63 @@ private:
                    
         return node;
     }
+    
+    // 删除二叉搜索树中的任意节点
+    BSTNode* remove(BSTNode *node, Value value)
+    {
+        if(!node)
+        {
+            return NULL;
+        }
+        
+        if (value < node->value)
+        {
+            node->left = remove(node->left, value);
+            return node;
+        }
+        else if (value > node->value)
+        {
+            node->right = remove(node->right, value);
+            return node;
+        }
+        else
+        {
+            // value == node->value
+            // 当删除节点的左子树为空
+            if (!node->left)
+            {
+                BSTNode *current = node->right;
+                delete node;
+                count--;
+                
+                return current;
+            }
+                    
+            // 当删除节点的右子树为空
+            if (!node->right)
+            {
+                BSTNode *current = node->left;
+                delete node;
+                count--;
+                
+                return current;  
+            }
+            
+            // 当删除节点的左右子树不为空
+            /* 找到比待删除节点大的最小节点, 即待删除节点右子树的最小节点s，用这个节点顶替待删除节点的位置 */
+            BSTNode *s = new BSTNode(recursionminimum(node->right)); // 创建一份右子树的最小节点
+            count++;
+            
+            // 关键地方
+            s->left = node->left;
+            s->right = recursionremoveMin(node->right);  // 调用删除最小值的接口
+            
+            delete node;
+            count--;
+            
+            return s;
+        }        
+    }
 };
 
 int main()
@@ -637,6 +707,10 @@ int main()
     
     bst.removeMax();
     cout << "levelOrder: " << endl;
+    bst.levelOrder();
+    
+    bst.remove(30);
+    cout << "After remove node: " << endl;
     bst.levelOrder();
     
     return 0;
