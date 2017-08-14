@@ -217,8 +217,10 @@ bool nonrecursionSearch(BSTNode *node, Value value)
 * 删除只有右孩子的节点：将右孩子的节点代替要删除的节点。
 
 * 当删除左右都有孩子的节点——Hubbard Deletion ：
-  方法一：首先找到 删除节点d 的最小右孩子节点 s = min(d->right); s->left = d->left; s->right = delMin(d->right)；删除节点d。
-  方法二：首先找到 删除节点d 的最大左孩子节点 s = max(d->left); s->left = delMax(d->left); s->right = d->right; 删除节点d。
+  
+  方法一：首先找到 删除节点d 的最小右孩子节点 s = min(d->right); s->left = d->left; s->right = delMin(d->right)；删除节点d。
+  
+  方法二：首先找到 删除节点d 的最大左孩子节点 s = max(d->left); s->left = delMax(d->left); s->right = d->right; 删除节点d。
 
 ```cpp
 // 删除二叉搜索树中的任意节点
