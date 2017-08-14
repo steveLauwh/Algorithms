@@ -542,6 +542,7 @@ BSTNode* nonrecursionmaximum(BSTNode *node)
 
 递归操作，如果当前节点的左节点为空，就把当前节点的左节点为空，否则将当前节点的右节点赋给当前节点的左节点。
 
+**递归版的删除二叉搜索树中的最小值**
 ```cpp
 // 删除二叉搜索树的最小值所在节点——递归实现
 BSTNode* recursionremoveMin(BSTNode *node)
@@ -561,12 +562,62 @@ BSTNode* recursionremoveMin(BSTNode *node)
 }
 ```
 
+**非递归版的删除二叉搜索树中的最小值**
+
+```cpp
+// 删除二叉搜索树的最小值所在节点——非递归实现
+BSTNode* nonrecursionremoveMin(BSTNode *node)
+{
+    BSTNode *parent = node;
+    BSTNode *temp = node;
+    int num = 0;
+
+    if (!temp->left)
+    {
+        BSTNode *current = temp->right;
+        delete temp;
+        count--;
+
+        return current;
+    }
+    else
+    {
+        while (temp->left)
+        {
+            temp = temp->left;
+            num++;
+        }
+
+        for (int i = 0; i < num-1; i++)
+        {
+            parent = parent->left;
+        }
+
+        if (temp->right)
+        {
+            parent->left = temp->right;
+            delete temp;
+            count--;   
+        }
+        else
+        {
+            parent->left = NULL;
+            delete temp;
+            count--;
+        }
+    }
+
+    return node;
+}
+```
+
 > **删除二叉搜索树中的最大值**
 
 删除二叉搜索树中的最大值所在节点，返回删除节点后新的二分搜索树的根。
 
 递归操作，如果当前节点的右节点为空，就把当前节点的右节点为空，否则将当前节点的左节点赋给当前节点的右节点。
 
+**递归版的删除二叉搜索树中的最大值**
 ```cpp
 // 删除二叉搜索树的最大值所在节点——递归实现
 BSTNode* recursionremoveMax(BSTNode *node)
@@ -581,6 +632,56 @@ BSTNode* recursionremoveMax(BSTNode *node)
     }
 
     node->right = recursionremoveMax(node->right);
+
+    return node;
+}
+```
+
+**非递归版的删除二叉搜索树中的最大值**
+
+```cpp
+// 删除二叉搜索树的最大值所在节点——非递归实现
+BSTNode* nonrecursionremoveMax(BSTNode *node)
+{
+    BSTNode *parent = node;
+    BSTNode *temp = node;
+
+    int num = 0;
+
+    if (!temp->right)
+    {
+        BSTNode *current = temp->left;
+        delete temp;
+        count--;
+
+        return current;
+    }
+    else
+    {
+        while (temp->right)
+        {
+            temp = temp->right;
+            num++;
+        }
+
+        for (int i = 0; i < num-1; i++)
+        {
+            parent = parent->right;
+        }
+
+        if (temp->left)
+        {
+            parent->right = temp->left;
+            delete temp;
+            count--;   
+        }
+        else
+        {
+            parent->right = NULL;
+            delete temp;
+            count--;
+        }
+    }
 
     return node;
 }
