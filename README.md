@@ -7,6 +7,6 @@ Solutions for some common data structure and algorithm problems written in C++ a
 
 ## [Tree](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Tree)
 
-## [Bit Manipulation](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Bit%20Manipulation)
-
 ## [Union Find](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Union%20Find)
+
+## [Bit Manipulation](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Bit%20Manipulation)
