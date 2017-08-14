@@ -94,7 +94,7 @@ public:
     {
         assert(count != 0);
         
-        BSTNode *node = minimum(root);
+        BSTNode *node = recursionminimum(root);
         
         return node->value;
     }
@@ -104,9 +104,27 @@ public:
     {
         assert(count != 0);
         
-        BSTNode *node = maximum(root);
+        BSTNode *node = recursionmaximum(root);
         
         return node->value;
+    }
+    
+    // 删除二叉搜索树中的最小值
+    void removeMin()
+    {
+        if (root)
+        {
+            root = recursionremoveMin(root);  // 删除最小值节点后，返回根节点
+        }
+    }
+    
+    // 删除二叉搜索树中的最大值
+    void removeMax()
+    {
+        if (root)
+        {
+            root = recursionremoveMax(root);  // 删除最大值节点后，返回根节点
+        }
     }
     
 private:
@@ -403,28 +421,174 @@ private:
         }
     }
     
-    // 查找二叉搜索树的最小值所在节点
-    BSTNode* minimum(BSTNode *node)
+    // 查找二叉搜索树的最小值所在节点——递归实现
+    BSTNode* recursionminimum(BSTNode *node)
     {
         if (node->left)
         {
-            return minimum(node->left);
-        }
-        
-        return node;
-    }
-         
-    // 查找二叉搜索树的最大值所在节点
-    BSTNode* maximum(BSTNode *node)
-    {
-        if (node->right)
-        {
-            return maximum(node->right);
+            return recursionminimum(node->left);
         }
         
         return node;
     }
     
+    // 查找二叉搜索树的最小值所在节点——非递归实现
+    BSTNode* nonrecursionminimum(BSTNode *node)
+    {
+        while (node->left)
+        {
+            node = node->left;
+        }
+        
+        return node;
+    }
+         
+    // 查找二叉搜索树的最大值所在节点——递归实现
+    BSTNode* recursionmaximum(BSTNode *node)
+    {
+        if (node->right)
+        {
+            return recursionmaximum(node->right);
+        }
+        
+        return node;
+    }
+    
+    // 查找二叉搜索树的最大值所在节点——非递归实现
+    BSTNode* nonrecursionmaximum(BSTNode *node)
+    {
+        while (node->right)
+        {
+            node = node->right;
+        }
+        
+        return node;
+    }
+    
+    // 删除二叉搜索树的最小值所在节点——递归实现
+    BSTNode* recursionremoveMin(BSTNode *node)
+    {
+        if (!node->left)
+        {
+            BSTNode *current = node->right;
+            delete node;
+            count--;
+            
+            return current;
+        }
+        
+        node->left =  recursionremoveMin(node->left); // 关键地方
+        
+        return node;
+    }
+    
+    // 删除二叉搜索树的最小值所在节点——非递归实现
+    BSTNode* nonrecursionremoveMin(BSTNode *node)
+    {
+        BSTNode *parent = node;
+        BSTNode *temp = node;
+        int num = 0;
+        
+        if (!temp->left)
+        {
+            BSTNode *current = temp->right;
+            delete temp;
+            count--;
+                    
+            return current;
+        }
+        else
+        {
+            while (temp->left)
+            {
+                temp = temp->left;
+                num++;
+            }
+
+            for (int i = 0; i < num-1; i++)
+            {
+                parent = parent->left;
+            }
+            
+            if (temp->right)
+            {
+                parent->left = temp->right;
+                delete temp;
+                count--;   
+            }
+            else
+            {
+                parent->left = NULL;
+                delete temp;
+                count--;
+            }
+        }
+                   
+        return node;
+    }
+    
+    // 删除二叉搜索树的最大值所在节点——递归实现
+    BSTNode* recursionremoveMax(BSTNode *node)
+    {
+        if (!node->right)
+        {
+            BSTNode *current = node->left;
+            delete node;
+            count--;
+            
+            return current;
+        }
+        
+        node->right = recursionremoveMax(node->right);
+        
+        return node;
+    }
+    
+    // 删除二叉搜索树的最大值所在节点——非递归实现
+    BSTNode* nonrecursionremoveMax(BSTNode *node)
+    {
+        BSTNode *parent = node;
+        BSTNode *temp = node;
+        
+        int num = 0;
+        
+        if (!temp->right)
+        {
+            BSTNode *current = temp->left;
+            delete temp;
+            count--;
+                    
+            return current;
+        }
+        else
+        {
+            while (temp->right)
+            {
+                temp = temp->right;
+                num++;
+            }
+
+            for (int i = 0; i < num-1; i++)
+            {
+                parent = parent->right;
+            }
+            
+            if (temp->left)
+            {
+                parent->right = temp->left;
+                delete temp;
+                count--;   
+            }
+            else
+            {
+                parent->right = NULL;
+                delete temp;
+                count--;
+            }
+        }
+                   
+        return node;
+    }
 };
 
 int main()
@@ -466,6 +630,14 @@ int main()
     cout << "maximum: " << bst.maximum() << endl;
 
     cout << "minimum: " << bst.minimum() << endl;
+    
+    bst.removeMin();
+    cout << "levelOrder: " << endl;
+    bst.levelOrder();
+    
+    bst.removeMax();
+    cout << "levelOrder: " << endl;
+    bst.levelOrder();
     
     return 0;
 }
