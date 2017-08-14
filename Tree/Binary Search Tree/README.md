@@ -210,6 +210,8 @@ bool nonrecursionSearch(BSTNode *node, Value value)
 
 ### 二叉搜索树—遍历「order」
 
+二叉搜索树的遍历时间复杂度 O(n)，n 为树的节点个数。
+
 > **前序遍历「preOrder」**
 
 `根-->左-->右`
@@ -430,23 +432,50 @@ void levelOrder(BSTNode *node)
 
 一直向左遍历，直到为当前节点的左子树为空，则当前节点为最小值。
 
+**递归版的查找二叉搜索树中的最小值**
+
 ```cpp
 // 查找二叉搜索树中的最小值
 Value minimum()
 {
     assert(count != 0);
 
-    BSTNode *node = minimum(root);
+    BSTNode *node = recursionminimum(root);
 
     return node->value;
 }
 
 // 查找二叉搜索树的最小值所在节点
-BSTNode* minimum(BSTNode *node)
+BSTNode* recursionminimum(BSTNode *node)
 {
     if (node->left)
     {
-        return minimum(node->left);
+        return recursionminimum(node->left);
+    }
+
+    return node;
+}
+```
+
+**非递归版的查找二叉搜索树中的最小值**
+
+```cpp
+// 查找二叉搜索树中的最小值
+Value minimum()
+{
+    assert(count != 0);
+
+    BSTNode *node = nonrecursionminimum(root);
+
+    return node->value;
+}
+
+// 查找二叉搜索树的最小值所在节点——非递归实现
+BSTNode* nonrecursionminimum(BSTNode *node)
+{
+    while (node->left)
+    {
+        node = node->left;
     }
 
     return node;
@@ -457,24 +486,50 @@ BSTNode* minimum(BSTNode *node)
 
 一直向右遍历，直到为当前节点的右子树为空，则当前节点为最大值。
 
-```cpp
+**递归版的查找二叉搜索树中的最大值**
 
+```cpp
 // 查找二叉搜索树中的最大值
 Value maximum()
 {
     assert(count != 0);
 
-    BSTNode *node = maximum(root);
+    BSTNode *node = recursionmaximum(root);
 
     return node->value;
 }
 
-// 查找二叉搜索树的最大值所在节点
-BSTNode* maximum(BSTNode *node)
+// 查找二叉搜索树的最大值所在节点——递归实现
+BSTNode* recursionmaximum(BSTNode *node)
 {
     if (node->right)
     {
-        return maximum(node->right);
+        return recursionmaximum(node->right);
+    }
+
+    return node;
+}
+```
+
+**非递归版的查找二叉搜索树中的最大值**
+
+```cpp
+// 查找二叉搜索树中的最大值
+Value maximum()
+{
+    assert(count != 0);
+
+    BSTNode *node = nonrecursionmaximum(root);
+
+    return node->value;
+}
+
+// 查找二叉搜索树的最大值所在节点——非递归实现
+BSTNode* nonrecursionmaximum(BSTNode *node)
+{
+    while (node->right)
+    {
+        node = node->right;
     }
 
     return node;
@@ -483,7 +538,53 @@ BSTNode* maximum(BSTNode *node)
 
 > **删除二叉搜索树中的最小值**
 
+删除二叉搜索树中的最小值所在节点，返回删除节点后新的二分搜索树的根。
+
+递归操作，如果当前节点的左节点为空，就把当前节点的左节点为空，否则将当前节点的右节点赋给当前节点的左节点。
+
+```cpp
+// 删除二叉搜索树的最小值所在节点——递归实现
+BSTNode* recursionremoveMin(BSTNode *node)
+{
+    if (!node->left)
+    {
+        BSTNode *current = node->right;
+        delete node;
+        count--;
+
+        return current;
+    }
+
+    node->left =  recursionremoveMin(node->left); // 关键地方
+
+    return node;
+}
+```
+
 > **删除二叉搜索树中的最大值**
+
+删除二叉搜索树中的最大值所在节点，返回删除节点后新的二分搜索树的根。
+
+递归操作，如果当前节点的右节点为空，就把当前节点的右节点为空，否则将当前节点的左节点赋给当前节点的右节点。
+
+```cpp
+// 删除二叉搜索树的最大值所在节点——递归实现
+BSTNode* recursionremoveMax(BSTNode *node)
+{
+    if (!node->right)
+    {
+        BSTNode *current = node->left;
+        delete node;
+        count--;
+
+        return current;
+    }
+
+    node->right = recursionremoveMax(node->right);
+
+    return node;
+}
+```
 
 > **删除二叉搜索树中的所有节点**
 
