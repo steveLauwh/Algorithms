@@ -70,7 +70,7 @@ public:
         if (pID == qID)
             return;
         
-        // O(n), 遍历, 当 将所有等于 arr[p]，赋值等于 arr[q]
+        // O(n), 遍历, 当将所有等于 arr[p]，赋值等于 arr[q]
         for (int i = 0; i < count; i++)
         {
             if (arr[i] == pID)
