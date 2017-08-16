@@ -16,7 +16,7 @@
 
 并查集的基本数据可以用 **数组** 表示。
 
-### Quick Find
+### [Quick Find](https://github.com/steveLauwh/Data-Structures-And-Algorithms/blob/master/Union%20Find/QuickFind.cpp)
 
 Quick Find 下 find 的时间复杂度为 O(1)。
 
