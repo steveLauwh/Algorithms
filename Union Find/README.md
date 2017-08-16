@@ -20,7 +20,7 @@
 
 Quick Find 下 find 的时间复杂度为 O(1)。
 
-Quick Find 下 union 的时间复杂度为 O(h), h 为树的高度。
+Quick Find 下 union 的时间复杂度为 O(n)。
 
 查找操作很高效，但是合并操作需要遍历一次数组。
 
@@ -86,8 +86,65 @@ public:
 
 Quick Union 改进的地方：并查集每个元素看作一个节点，现在把每个节点的父亲节点组成数组。
 
-Quick Union 下 union 的时间复杂度为 O(1)。
+Quick Union 下 union 的时间复杂度为 O(h), h 为树的高度。
 
 ```cpp
+class UnionFind
+{
+private:
+    int *parent;  // 使用一个数组构建一棵指向父节点的树
+    int count;
+    
+public:
+    UnionFind(int n)
+    {
+        parent = new int[n];
+        count = n;
+        
+        for (int i = 0; i < count; i++)
+        {
+            parent[i] = i;  // 每一个 parent[i] 指向自己，表示根节点
+        }
+    }
+    
+    ~UnionFind()
+    {
+        delete[] parent;
+    }
+    
+    // 查找过程，根节点的特点: parent[p] == p
+    int find(int p)
+    {
+        assert(p >= 0 && p < count);
+        
+        // 不断去查找自己的父亲节点, 直到到达根节点
+        while (p != parent[p])
+        {
+            p = parent[p];
+        }
+        
+        return p;  // 最终根节点
+    }
+    
+    // 查看元素 p 和 元素 q 是否连接, 当 arr[p] == arr[q], 表示连接
+    bool isConnected(int p, int q)
+    {
+        return find(p) == find(q);
+    }
+    
+    // 合并元素 p 和 元素 q
+    void unions(int p, int q)
+    {
+        int pID = find(p);  // p 的根节点
+        int qID = find(q);  // q 的根节点
+        
+        if (pID == qID)
+        {
+            return;
+        }
+        
+        parent[pID] = qID;
+    }  
+};
 ```
 
