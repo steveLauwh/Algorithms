@@ -20,7 +20,7 @@
 
 Quick Find 下 find 的时间复杂度为 O(1)。
 
-Quick Find 下 union 的时间复杂度为 O(n)。
+Quick Find 下 union 的时间复杂度为 O(h), h 为树的高度。
 
 查找操作很高效，但是合并操作需要遍历一次数组。
 
@@ -80,5 +80,14 @@ public:
         }       
     }    
 };
+```
+
+### [Quick Union](https://github.com/liuyubobobo/Play-with-Algorithms/blob/master/06-Union-Find/Course%20Code%20(C%2B%2B)/03-Quick-Union/UnionFind2.h)
+
+Quick Union 改进的地方：并查集每个元素看作一个节点，现在把每个节点的父亲节点组成数组。
+
+Quick Union 下 union 的时间复杂度为 O(1)。
+
+```cpp
 ```
 
