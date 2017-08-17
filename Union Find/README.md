@@ -152,4 +152,29 @@ public:
 
 在 Quick Union 里的合并操作 unions，分别找到两个元素的根，以一个根节点指向另一个根节点的父亲节点(自己)，这里并没有考虑这两个元素的根节点包含子节点的个数，应该包含子节点的个数少的根节点的父亲节点指向大的一侧。
 
+```
+// 优化地方
+// 合并元素 p 和 元素 q
+void unions(int p, int q)
+{
+    int pID = find(p);  // p 的根节点
+    int qID = find(q);  // q 的根节点
 
+    if (pID == qID)
+    {
+        return;
+    }
+
+    // 将元素个数少的集合合并到元素个数多的集合上
+    if (size[pID] < size[qID])
+    {
+        parent[pID] = qID;
+        size[qID] += size[pID];
+    }        
+    else
+    {
+        parent[qID] = pID;
+        size[pID] += size[qID];
+    }
+}
+```
