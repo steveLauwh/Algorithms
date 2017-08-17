@@ -1,4 +1,4 @@
-## Delete Node in a Linked List
+## Delete Node in a Linked List「LeetCode 237」
 
 题目要求是在单链表中删除一个节点，已经告诉要删除的节点，怎么去删除。
 
