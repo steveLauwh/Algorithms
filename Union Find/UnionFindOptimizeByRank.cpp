@@ -11,7 +11,7 @@ class UnionFind
 {
 private:
     int *parent;  // 使用一个数组构建一棵指向父节点的树
-    int *rank;    // rank[i] 表示以 i 为根的集合所表示的树的层数
+    int *rank;    // rank[i] 表示以 i 为根的集合所表示的树的层数, 优化
     int count;
     
 public:
