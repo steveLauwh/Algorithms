@@ -148,7 +148,7 @@ public:
 };
 ```
 
-### 基于 size 优化的 Union Find
+### [基于 size 优化的 Union Find](https://github.com/steveLauwh/Data-Structures-And-Algorithms/blob/master/Union%20Find/UnionFindOptimizeBySize.cpp)
 
 在 Quick Union 里的合并操作 unions，分别找到两个元素的根，以一个根节点指向另一个根节点的父亲节点(自己)，这里并没有考虑这两个元素的根节点包含子节点的个数，应该包含子节点的个数少的根节点的父亲节点指向大的一侧。
 
@@ -179,7 +179,7 @@ void unions(int p, int q)
 }
 ```
 
-## 基于 rank 优化的 Union Find
+## [基于 rank 优化的 Union Find](https://github.com/steveLauwh/Data-Structures-And-Algorithms/blob/master/Union%20Find/UnionFindOptimizeByRank.cpp)
 
 在基于 size 优化的 Union Find基础上，继续优化，添加 `int *rank`, rank[i]表示以 i 为根的集合所表示的树的层数。
 
@@ -212,3 +212,5 @@ void unions(int p, int q)
     }
 }  
 ```
+
+
