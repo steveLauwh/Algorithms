@@ -11,7 +11,7 @@ class UnionFind
 {
 private:
     int *parent;  // 使用一个数组构建一棵指向父节点的树
-    int *size;    // size[i] 表示以 i 为根的集合中元素个数
+    int *size;    // size[i] 表示以 i 为根的集合中元素个数, 优化点
     int count;
     
 public:
