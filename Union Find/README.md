@@ -183,5 +183,32 @@ void unions(int p, int q)
 
 在基于 size 优化的 Union Find基础上，继续优化，添加 `int *rank`, rank[i]表示以 i 为根的集合所表示的树的层数。
 
+```cpp
+// 优化地方
+// 合并元素 p 和 元素 q
+void unions(int p, int q)
+{
+    int pID = find(p);  // p 的根节点
+    int qID = find(q);  // q 的根节点
 
+    if (pID == qID)
+    {
+        return;
+    }
 
+    // 将层数少的集合合并到层数多的集合上
+    if (rank[pID] < rank[qID])
+    {
+        parent[pID] = qID;
+    }        
+    else if (rank[pID] > rank[qID])
+    {
+        parent[qID] = pID;
+    }
+    else 
+    {
+        parent[pID] = qID;
+        rank[qID] += 1;
+    }
+}  
+```
