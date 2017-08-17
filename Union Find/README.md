@@ -213,4 +213,22 @@ void unions(int p, int q)
 }  
 ```
 
+## [路径压缩 Path Compression](https://github.com/steveLauwh/Data-Structures-And-Algorithms/blob/master/Union%20Find/PathCompressionByUnionFind.cpp)
 
+```cpp
+// Path Compression
+// 查找过程，根节点的特点: parent[p] == p
+int find(int p)
+{
+    assert(p >= 0 && p < count);
+
+    // 不断去查找自己的父亲节点, 直到到达根节点
+    while (p != parent[p])
+    {
+        parent[p] = parent[parent[p]];
+        p = parent[p];
+    }
+
+    return p;  // 最终根节点
+}
+```            
