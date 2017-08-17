@@ -215,6 +215,8 @@ void unions(int p, int q)
 
 ## [路径压缩 Path Compression](https://github.com/steveLauwh/Data-Structures-And-Algorithms/blob/master/Union%20Find/PathCompressionByUnionFind.cpp)
 
+基于 rank 优化的 Union Find 的基础上进行路径压缩操作，这个 rank 值在经过路径压缩以后，虽然不是真正的深度值。
+
 ```cpp
 // Path Compression
 // 查找过程，根节点的特点: parent[p] == p
