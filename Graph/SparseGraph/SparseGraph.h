@@ -18,7 +18,7 @@ private:
 public:
     SparseGraph(int n, bool directed) {
         this->n = n;
-        thid->m = m;
+        thid->m = 0;
         this->directed = directed;
         
         for (int i = 0; i < n; i++) {
