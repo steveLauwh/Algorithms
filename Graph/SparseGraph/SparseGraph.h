@@ -13,7 +13,7 @@ private:
     int n;  // 图的顶点
     int m;  // 图的边
     bool directed; // 方向
-    vector<vector<int>> g;  // 邻接表的特点，还可以用链表表示
+    vector< vector<int> > g;  // 邻接表的特点，还可以用链表表示
 
 public:
     SparseGraph(int n, bool directed) {
@@ -55,7 +55,7 @@ public:
         assert(v >= 0 && v < n);
         assert(w >= 0 && w < n);
 
-        for (int i = 0; i < g[v].size(); i++) {
+        for (unsigned int i = 0; i < g[v].size(); i++) {
             if (g[v][i] == w)
                 return true;
         }
@@ -68,7 +68,7 @@ public:
     private:
         SparseGraph &G;
         int v;
-        int index;
+        unsigned int index;
 
     public:
         sparseGraphIterator(SparseGraph &graph, int v) : G(graph) {
