@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <iostream>
-#inclue <cassert>
+#include <cassert>
 
 using namespace std;
 
@@ -76,12 +76,12 @@ public:
         
         int begin() {
             index = -1;
-            next();
+            return next();
         }
         
         int next() {
             for (index += 1; index < G.V(); index++) {
-                if (G.[v][index]) {
+                if (G.g[v][index]) {
                     return index;    // 返回节点的值
                 }
             }
