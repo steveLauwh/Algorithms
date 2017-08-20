@@ -63,6 +63,43 @@ public:
         return false;
     }
     
+    // 遍历邻边——迭代器
+    class sparseGraphIterator {
+    private:
+        SpareseGraph &G;
+        int v;
+        int index;
+        
+    public:
+        spareseGraphIterator(SpareseGraph &graph, int v) : G(graph) {
+        `   this->v = v;
+            this->index = 0;
+        }
+        
+        int begin() {
+            index = 0;
+            if (G.[v].size()) {
+                return G.[v][index];
+            }
+            
+            return -1;
+        }
+        
+        int next() {
+            index++;
+            if (index < G.[v].size()) {
+                return G.[v][index];
+            }
+            
+            return -1;
+        }
+        
+        bool end() {
+            return index >= G.[v].size();
+        }
+    };
+    
+    
 };
 
 #endif
