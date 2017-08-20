@@ -62,6 +62,38 @@ public:
         return g[v][w];
     }
     
+    class denseGraphIterator {
+    private:
+        DenseGraph &G;
+        int v;
+        int index;
+        
+    public:
+        denseGraphIterator(DenseGraph &graph, int v) : G(graph) {
+            this->v = v;
+            this->index = -1;
+        }
+        
+        int begin() {
+            index = -1;
+            next();
+        }
+        
+        int next() {
+            for (index += 1; index < G.V(); index++) {
+                if (G.[v][index]) {
+                    return index;    // 返回节点的值
+                }
+            }
+            
+            return -1;
+        }
+        
+        int end() {
+            return index >= G.V();
+        }
+    };
+    
 };
 
 #endif
