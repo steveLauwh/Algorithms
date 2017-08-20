@@ -13,17 +13,127 @@
 
 **[邻接矩阵的数据结构表示](https://github.com/steveLauwh/Data-Structures-And-Algorithms/blob/master/Graph/DenseGraph/DenseGraph.h)**
 ```cpp
-int n;
-int m;
-bool directed;
-vector<vector<bool>> g; // 邻接矩阵的值用 0 和 1 表示
+// 稠密图——用邻接矩阵表示
+class DenseGraph {
+private:
+    int n;
+    int m;
+    bool directed;
+    vector<vector<bool>> g; // 邻接矩阵的值用 0 和 1 表示
+
+public:
+    DenseGraph(int n, bool directed) {
+        this->n = n;
+        this->m = 0;
+        this->directed = directed;
+        
+        for (int i = 0; i < n; i++) {
+            g.push_back(vector<bool>(n, false));  // 矩阵初始都为 false
+        }
+    }
+    
+    ~DenseGraph() {
+    
+    }
+    
+    int V() {
+        return n;
+    }
+    
+    int E() {
+        return m;
+    }
+    
+    void addEdge(int v, int w) {
+        assert(v >= 0 && v < n);
+        assert(w >= 0 && w < n);
+        
+        if (hasEdge(v, w)) {
+            return;
+        }
+        
+        g[v][w] = true;
+        
+        if (!directed) {
+            g[w][v] = true;  // 无向图
+        }
+        
+        m++;
+    }
+    
+    bool hasEdge(int v, int w) {
+        assert(v >= 0 && v < n);
+        assert(w >= 0 && w < n);
+        
+        return g[v][w];
+    }
+    
+};
 ```
 
 **[邻接表的数据结构表示](https://github.com/steveLauwh/Data-Structures-And-Algorithms/blob/master/Graph/SparseGraph/SparseGraph.h)**
 ```cpp
-int n;  // 图的顶点
-int m;  // 图的边
-bool directed; // 方向
-vector<vector<int>> g;  // 邻接表的特点，还可以用链表表示
+// 稀疏图——用邻接表表示
+class SparseGraph {
+private:
+    int n;  // 图的顶点
+    int m;  // 图的边
+    bool directed; // 方向
+    vector<vector<int>> g;  // 邻接表的特点，还可以用链表表示
+
+public:
+    SparseGraph(int n, bool directed) {
+        this->n = n;
+        thid->m = 0;
+        this->directed = directed;
+        
+        for (int i = 0; i < n; i++) {
+            g.push_back(vector<int>()); // 初始每行都为空
+        }
+    }
+    
+    ~SparseGraph() {
+    
+    }
+    
+    int V() {
+        return n;  // 顶点数
+    }
+    
+    int E() {
+        return m;  // 边数
+    }
+    
+    void addEdge(int v, int w) {
+        assert(v >= 0 && v < n);
+        assert(w >= 0 && w < n);
+        
+        g[v].push_back(w);
+        
+        if (v != w && !directed) {  // 无向图
+            g[w].push_back(v);
+        }
+        
+        m++;
+    }
+    
+    bool hasEdge(int v, int w) {
+        assert(v >= 0 && v < n);
+        assert(w >= 0 && w < n);
+        
+        for (int i = 0; i < g[v].size(); i++) {
+            if (g[v][i] == w)
+                return true;
+        }
+        
+        return false;
+    }
+    
+};
 ```
+
+## 遍历邻边——迭代器
+
+
+
 
