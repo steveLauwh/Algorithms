@@ -213,3 +213,42 @@ public:
     }
 };
 ```
+
+## [读取图](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Graph/ReadGraph)
+
+图是以文件的方式表示，读取一个图的信息。
+
+```cpp
+template <typename Graph>
+class ReadGraph {
+public:
+	ReadGraph(Graph &graph, const string &filename) {
+		ifstream file(filename);
+		string line;
+		int V, E;
+
+		assert(file.is_open());
+
+		assert(getline(file, line));
+		stringstream ss(line);
+		ss >> V >> E;
+
+		assert(V == graph.V());
+
+		for (int i = 0; i < E; i++) {
+			assert(getline(file, line));
+			stringstream ss(line);
+
+			int a, b;
+			ss >> a >> b;
+			assert(a >= 0 && a < V);
+			assert(b >= 0 && b < V);
+
+			graph.addEdge(a, b);
+		}
+	}
+};
+```
+
+
+
