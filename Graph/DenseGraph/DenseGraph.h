@@ -61,6 +61,17 @@ public:
 
         return g[v][w];
     }
+    
+    void show() {
+        for(int i = 0; i < n; i ++) {
+            for(int j = 0; j < n; j ++) {
+
+                cout << g[i][j] << "\t";
+            }
+
+            cout << endl;
+        }
+    }
 
     class denseGraphIterator {
     private:
