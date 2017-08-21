@@ -26,7 +26,7 @@ int main() {
   for (int v = 0; v < N; v++) {
       cout << v << " : ";
       
-      SparseGraph::sparseGraphIterator it(sparseGraph, v);
+      SparseGraph::adjIterator it(sparseGraph, v);
       
       for (int w = it.begin(); !it.end(); w = it.next()) {
           cout << w << " ";
@@ -51,7 +51,7 @@ int main() {
   for (int v = 0; v < N; v++) {
       cout << v << " : ";
       
-      DenseGraph::denseGraphIterator it(denseGraph, v);
+      DenseGraph::adjIterator it(denseGraph, v);
       
       for (int w = it.begin(); !it.end(); w = it.next()) {
           cout << w << " ";
