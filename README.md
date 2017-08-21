@@ -12,3 +12,5 @@ Solutions for some common data structure and algorithm problems written in C++ a
 ## [Bit Manipulation](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Bit%20Manipulation)
 
 ## [Graph](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Graph)
+
+## [Hash Table](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Hash%20Table)
