@@ -214,7 +214,7 @@ public:
 };
 ```
 
-## [读取图](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Graph/ReadGraph)
+## [图的读取](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Graph/ReadGraph)
 
 图是以文件的方式表示，读取一个图的信息。
 
@@ -250,5 +250,34 @@ public:
 };
 ```
 
+## 图的遍历 
 
+### 深度优先遍历(DFS)
+
+需要用数组记录每个顶点是否遍历，遍历为 true。
+
+通过 DFS 可以计算图的连通分量。
+
+稀疏图(邻接表)的时间复杂度： O( V + E )
+
+稠密图(邻接矩阵)的时间复杂度：O( V^2 )
+
+深度优先遍历算法：使用相邻边迭代器，递归遍历。
+
+```cpp
+// 图的深度优先遍历
+void dfs(int v) {
+    visited[v] = true;
+
+    typename Graph::adjIterator adj(g, v);
+
+    for (int i = adj.begin(); !adj.end(); i = adj.next()) {
+	if (!visited[i]) {
+	    dfs(i);
+	}
+    }
+}
+```
+
+### 广度优先遍历
 
