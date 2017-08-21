@@ -73,14 +73,14 @@ public:
         }
     }
 
-    class denseGraphIterator {
+    class adjIterator {
     private:
         DenseGraph &G;
         int v;
         int index;
 
     public:
-        denseGraphIterator(DenseGraph &graph, int v) : G(graph) {
+        adjIterator(DenseGraph &graph, int v) : G(graph) {
             this->v = v;
             this->index = -1;
         }
