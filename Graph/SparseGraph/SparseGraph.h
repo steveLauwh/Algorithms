@@ -76,14 +76,14 @@ public:
 
 
     // 遍历邻边——迭代器
-    class sparseGraphIterator {
+    class adjIterator {
     private:
         SparseGraph &G;
         int v;
         unsigned int index;
 
     public:
-        sparseGraphIterator(SparseGraph &graph, int v) : G(graph) {
+        adjIterator(SparseGraph &graph, int v) : G(graph) {
             this->v = v;
             this->index = 0;
         }
