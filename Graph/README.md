@@ -236,15 +236,15 @@ public:
 	assert(V == graph.V());
 
 	for (int i = 0; i < E; i++) {
-		assert(getline(file, line));
-		stringstream ss(line);
+	    assert(getline(file, line));
+	    stringstream ss(line);
+	    
+	    int a, b;
+	    ss >> a >> b;
+	    assert(a >= 0 && a < V);
+	    assert(b >= 0 && b < V);
 
-		int a, b;
-		ss >> a >> b;
-		assert(a >= 0 && a < V);
-		assert(b >= 0 && b < V);
-
-		graph.addEdge(a, b);
+	    graph.addEdge(a, b);
 	}
     }
 };
@@ -281,7 +281,7 @@ void dfs(int v) {
 
 ## 图的应用
 
-### 求图的连通分量
+### [求图的连通分量](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Graph/Component)
 
 通过 DFS 可以计算图的连通分量。
 
