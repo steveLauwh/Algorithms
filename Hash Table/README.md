@@ -30,7 +30,7 @@
 
 当关键字不是自然数 N = {0, 1, 2...}，那么需要转换为自然数。例如当关键字是字符串时，可以通过将字符串中的每个字符的 ASCII 码相加，转换为自然数。
 
-**散列函数的设计方法**
+### 散列函数的设计方法
 
 * 除法散列法(常用)
 
@@ -90,7 +90,13 @@
 
 其中 h1 和 h2 为辅助散列函数。初始探测位置为 T[h1(Key)]，后续的探测位置在此基础上加上偏移量 h2(Key) 模 m。
 
-### 链接法
+### 链接法(常用)
+
+将散列到同一槽中的所有元素（冲突的元素）都放在一个链表中。
+
+若选定的散列表长度为 m，则可将散列表定义为一个由 m 个头指针组成的指针数组 T[0..m-1]。凡是散列地址为 i 的结点，均插入到以 T[i] 为头指针的单链表中。T中各分量的初值均应为空指针。
+
+**优点：删除操作比较方便。**
 
 ## 参考资料
 
@@ -98,4 +104,5 @@
 * CS210 Lab: Hash Table：http://www.cs.uregina.ca/Links/class-info/210/Hash/#EXERCISE
 * http://www.cnblogs.com/Anker/archive/2013/01/27/2879150.html
 * http://blog.csdn.net/duan19920101/article/details/51579136
+* http://www.cnblogs.com/zhoutaotao/p/4067749.html#zaisanliewenti
 
