@@ -267,9 +267,9 @@ public:
 void dfs(int v) {
     visited[v] = true;
 
-    typename Graph::adjIterator adj(g, v);
+    typename Graph::adjIterator ite(g, v);  // Graph 模板，稠密图和稀疏图
 
-    for (int i = adj.begin(); !adj.end(); i = adj.next()) {
+    for (int i = ite.begin(); !ite.end(); i = ite.next()) {
 	if (!visited[i]) {
 	    dfs(i);
 	}
@@ -317,16 +317,16 @@ public:
 	counts = 0;
 
 	for (int i = 0; i < g.V(); i++) {
-		visited[i] = false;
-		id[i] = -1;
+	    visited[i] = false;
+            id[i] = -1;
 	}
 
 	// 图的联通分量
 	for (int i = 0; i < g.V(); i++) {
-		if (!visited[i]) {
-		    dfs(i);
-		    counts++;
-		}
+	    if (!visited[i]) {
+		dfs(i);
+		counts++;
+	    }
 	}
     }
 
@@ -348,4 +348,9 @@ public:
     }
 };
 ```
+
+### [求图中任意两点之间的路径]()
+
+通过 DFS 可以求图中任意两点之间的路径。
+
 
