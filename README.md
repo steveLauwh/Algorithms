@@ -14,3 +14,7 @@ Solutions for some common data structure and algorithm problems written in C++ a
 ## [Graph](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Graph)
 
 ## [Hash Table](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Hash%20Table)
+
+# Reference
+
+* coursera: [Algorithms, Part I](https://www.coursera.org/learn/algorithms-part1)
