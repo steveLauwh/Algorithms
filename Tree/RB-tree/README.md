@@ -25,7 +25,7 @@ struct Rb_tree_node
 
 ## 参考资料
 
-* <<STL源码剖析>>
+* <<STL源码剖析 - stl_tree.h>>
 * http://blog.csdn.net/v_july_v/article/details/6105630
 * https://zhuanlan.zhihu.com/p/24367771
 * https://zhuanlan.zhihu.com/p/24795143?refer=dreawer
