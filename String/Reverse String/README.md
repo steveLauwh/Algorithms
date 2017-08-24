@@ -1,4 +1,4 @@
-## 旋转字符串 Reverse String I「LeetCode 」
+## 旋转字符串 Reverse String I「LeetCode 344」
 
 Write a function that takes a string as input and returns the string reversed.
 
@@ -11,4 +11,4 @@ Given s = "hello", return "olleh".
 
 其实就是首尾字符进行两两交换，第二个与倒数第二个进行两两交换，终止条件为中间字符。
 
-## 旋转字符串 Reverse String II「LeetCode 」
+## 旋转字符串 Reverse String II「LeetCode 541」
