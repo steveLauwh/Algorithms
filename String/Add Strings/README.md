@@ -16,5 +16,5 @@ You must not use any built-in BigInteger library or convert the inputs to intege
 * 两个字符串相加，字符串的末尾是个位，两个字符串从末尾向前两两相加；
 * 相加考虑进位 carry；
 * 虽然每个字符串中的每个字符是由 0~9 构成，但是要获取其值，需要 s[i]-'0'; 最后数字转换字符，需要 s[i]+'0';
-* 注意循环判定条件
+* 注意循环判定条件；
 
