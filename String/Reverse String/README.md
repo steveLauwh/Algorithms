@@ -30,3 +30,11 @@ Restrictions:
 The string consists of lower English letters only.
 Length of the given string and k will in the range [1, 10000]
 ```
+
+题解：
+
+给定一个字符串和一个整形 k，从字符串开始，每 2k 个字符，旋转前 k 个字符；当字符串不足 k 个字符，就全部旋转；当字符串小于 2k 个字符，但是大于 k 个字符，就只旋转前 k 个字符。
+
+C++ STL：旋转 `reverse   [first, last)`
+
+每 2k 个字符进行遍历，`[i, i+k)`区间旋转，但是考虑到不足 2k 个字符就旋转前 k 个字符，所以翻转尾位置 `i+k 和 end()` 进行比较，每次取小者。
