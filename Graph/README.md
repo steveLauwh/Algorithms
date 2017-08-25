@@ -594,3 +594,7 @@ private:
     int *order;  // 记录路径中节点的次序。order[i]表示i节点在路径中的次序。  
 };
 ```
+
+## 参考资料
+
+* https://github.com/liuyubobobo/Play-with-Algorithms
