@@ -2,9 +2,9 @@
 
 图论能解决计算机科学很多问题。
 
-图的分类：无向图和有向图。其中无向图是一种特殊的有向图。
+图的分类：`无向图`和`有向图`。其中`无向图`是一种特殊的有向图。
 
-根据边有没有权值，分为无权图和有权图。
+根据边有没有权值，分为`无权图`和`有权图`。
 
 ## 图的表示
 
@@ -279,9 +279,37 @@ void dfs(int v) {
 
 ### 广度优先遍历(BFS)
 
+需要用数组记录每个顶点是否遍历，遍历为 true。
+
+稀疏图(邻接表)的时间复杂度： O( V + E )
+
+稠密图(邻接矩阵)的时间复杂度：O( V^2 )
+
+广度优先遍历的思想类似于树的层次遍历思想，也是使用队列，先把源节点入队列，出队列，然后把源节点的所有相邻节点入队列，再先出第一个相邻节点出列，把这个相邻节点的所有相邻节点入队列，依次……
+
+void bfs(int s) {
+    queue<int> q;
+    q.push(s);
+	
+    visited[s] = true;
+    
+    while (!q.empty()) {
+        int v = q.front();
+	q.pop();
+	
+	typename Graph::adjIterator adj(g, v);
+	for (int i = adj.begin(); !adj.end(); i = adj.next()) {
+	    if (!visited[i]) {
+	    	q.push(i);
+		visited[i] = true;
+	    }
+	}
+    }
+}
+
 ## 图的应用
 
-### [求图的连通分量](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Graph/Component)
+### [求无权图的连通分量](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Graph/Component)
 
 通过 DFS 可以计算图的连通分量。
 
@@ -349,7 +377,7 @@ public:
 };
 ```
 
-### [求图中任意两点之间的路径](https://github.com/steveLauwh/Data-Structures-And-Algorithms/edit/master/Graph/FindPath/FindPath.h)
+### [求无权图中任意两点之间的路径](https://github.com/steveLauwh/Data-Structures-And-Algorithms/edit/master/Graph/FindPath/FindPath.h)
 
 通过 DFS 可以求图中任意两点之间的路径。
 
@@ -447,3 +475,5 @@ public:
     }
 };
 ```
+
+### [求无权图的最短路径]()
