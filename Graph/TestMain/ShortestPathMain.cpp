@@ -22,11 +22,11 @@ int main() {
     // 广度优先遍历获得的是无权图的最短路径
     FindPath<SparseGraph> dfs(g, 0);
     cout<<"DFS : ";
-    dfs.showPath(6);
+    dfs.showPath(4);
 
-    ShortestPath<SparseGraph> bfs(g,0);
+    ShortestPath<SparseGraph> bfs(g, 0);
     cout<<"BFS : ";
-    bfs.showPath(6);
+    bfs.showPath(4);
     
     return 0;
 }
