@@ -5,6 +5,8 @@ Solutions for some common data structure and algorithm problems written in C++ a
 
 ## [String](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/String)
 
+## [Stack](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Stack)
+
 ## [Bit Manipulation](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Bit%20Manipulation)
 
 ## [Sort](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Sort)
