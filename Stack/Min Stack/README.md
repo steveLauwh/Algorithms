@@ -18,5 +18,11 @@ minStack.pop();
 minStack.top();      --> Returns 0.
 minStack.getMin();   --> Returns -2.
 ```
+保证时间复杂度都是 O(1)。
 
 题解：
+
+栈是一种先入后出的数据结构。
+
+
+
