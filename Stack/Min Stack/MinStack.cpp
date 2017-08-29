@@ -22,7 +22,7 @@ public:
     }
     
     int top() {
-        return minst.top();
+        return st.top();
     }
     
     int getMin() {
