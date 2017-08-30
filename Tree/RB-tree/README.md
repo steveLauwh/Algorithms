@@ -26,6 +26,45 @@ struct Rb_tree_node
 }
 ```
 
+STL 源码：
+```cpp
+typedef bool _Rb_tree_Color_type;
+const _Rb_tree_Color_type _S_rb_tree_red = false;
+const _Rb_tree_Color_type _S_rb_tree_black = true;
+
+struct _Rb_tree_node_base
+{
+    typedef _Rb_tree_Color_type _Color_type;
+    typedef _Rb_tree_node_base* _Base_ptr;
+    
+    _Color_type _M_color;  // 颜色
+    _Base_ptr _M_parent;   // 父亲节点
+    _Base_ptr _M_left;     // 左孩子节点
+    _Base_ptr _M_right;    // 右孩子节点
+    
+    // 找值最小节点
+    static _Base_ptr _S_minimum(_Base_ptr __x)
+    {
+        while (__x->_M_left != 0) __x = __x->_M_left;
+        return __x;
+    }
+    
+    // 找值最大节点
+    static _Base_ptr _S_maximum(_Base_ptr __x)
+    {
+        while (__x->_M_right != 0) __x = __x->_M_right;
+        return __x;
+    }
+}
+
+template <class _Value>
+struct _Rb_tree_node : public _Rb_tree_node_base
+{
+    typedef _Rb_tree_node<_Value>* _Link_type;
+    _Value _M_value_field;  // 键值
+};
+```
+
 ### 红黑树的旋转
 
 红黑树的旋转分为左旋转和右旋转。
@@ -34,17 +73,86 @@ struct Rb_tree_node
 
 任何插入操作，当节点插入后，都要做一次调整操作，将树的状态调整到符合 RB-tree 的要求。
 
+在做旋转操作时，节点的位置改变，那么该节点的父亲节点，左右孩子节点都要重新赋值。
+
 **左旋转**
 
 当在某个节点 pivot 上，做左旋转操作时，当这个 pivot 的节点右孩子 Y 不为空，那么以 pivot 到 Y 之间为轴进行左旋转，此时 Y 就在原先 pivot 上，pivot 作为Y的左孩子，Y 的左孩子变成 pivot 的右孩子。
+
+```
+      p                             p 
+     /                             / 
+    x                             y 
+   / \                           / \ 
+  lx  y      ---左旋转--->      x  ry 
+     / \                       / \ 
+    ly ry                     lx ly 
+```
+
+```cpp
+inline void _Rb_tree_rotate_left(_Rb_tree_node_base* __x, _Rb_tree_node_base*& __root)
+{
+    _Rb_tree_node_base* __y = __x->_M_right;   // y 是 x 的右孩子节点
+    __x->M_right = __y->_M_left;    // 将 y 的左孩子节点 赋值到 x 的右孩子节点
+    
+    if (__y->_M_left != 0)
+        __y->_M_left->_M_parent = __x;  // y 的左孩子节点的父亲节点就是 x
+    __y->_M_parent = __x->_M_parent;    // y 取代 x 的位置，y 的父亲节点就是 x 的父亲节点
+    
+    // 更新 p，y 是位于 p 的左孩子还是右孩子
+    if (__x == __root)
+        __root = __y;
+    else if (__x == __x->_M_parent->_M_left)
+        __x->_M_parent->_M_left = __y;
+    else 
+        __x->_M_parent->_M_right = __y;
+    
+    __y->_M_left = __x;   // y 的左孩子就是 x
+    __x->_M_parent = __y; // x 的父亲节点就是 y
+}
+```
 
 **右旋转**
 
 当在某个节点 pivot 上，做右旋转操作时，当这个 pivot 的节点左孩子 Y 不为空，那么以 pivot 到 Y 之间为轴进行左旋转，此时 Y 就在原先 pivot 上，pivot 变成Y的右孩子，Y 的右孩子变成 pivot 的左孩子。
 
+```
+        p                      p 
+       /                      / 
+      x                      y 
+     / \                    / \ 
+    y  rx   ---右旋转--->  ly  x 
+   / \                        / \ 
+  ly  ry                     lx rx 
+```
+
+```cpp
+inline void _Rb_tree_rotate_right(_Rb_tree_node_base* __x, _Rb_tree_node_base*& __root)
+{
+    _Rb_tree_node_base* __y = __x->_M_left;  // y 位于 x 的左孩子节点
+    __x->_M_left = __y->_M_right;   // 将 y 的右孩子节点 赋值给 x 的左孩子节点
+    if (__y->_M_right != 0)     // 如果 y 的右孩子节点不为空
+        __y->_M_right->_M_parent = __x;   // y 的右孩子节点的父亲节点就是 x
+    __y->_M_parent = __x->_M_parent;   // y 取代 x 的位置，y 的父亲节点就是 x 的父亲节点
+
+    // 更新 p，y 是位于 p 的左孩子还是右孩子
+    if (__x == __root)
+        __root = __y;
+    else if (__x == __x->_M_parent->_M_right)
+        __x->_M_parent->_M_right = __y;
+    else
+        __x->_M_parent->_M_left = __y;
+        
+  __y->_M_right = __x;  // y 的右孩子就是 x
+  __x->_M_parent = __y; // x 的父亲节点就是 y
+}
+```
+
 ### 红黑树的插入
 
+在红黑树中插入节点都是红色的。
 
+### 红黑树的删除
 
 ## 参考资料
 
