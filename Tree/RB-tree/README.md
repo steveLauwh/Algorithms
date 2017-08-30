@@ -8,11 +8,11 @@
 
 红黑树的高度在 [logN, logN+1]。
 
-* 每个节点不是红色，就是黑色；
-* 根节点必须是黑色；
-* 如果一个节点是红色，那么它的孩子必须是黑色；
-* 任何一个节点向下遍历到其叶子节点，所经过的黑色节点必须相等；
-* 空节点必须是黑色；
+* 规则 1：每个节点不是红色，就是黑色；
+* 规则 2：根节点必须是黑色；
+* 规则 3：如果一个节点是红色，那么它的孩子必须是黑色；
+* 规则 4：任何一个节点向下遍历到其叶子节点，所经过的黑色节点必须相等；
+* 规则 5：空节点必须是黑色；
 
 ### 红黑树的数据结构
 
@@ -143,14 +143,73 @@ inline void _Rb_tree_rotate_right(_Rb_tree_node_base* __x, _Rb_tree_node_base*& 
     else
         __x->_M_parent->_M_left = __y;
         
-  __y->_M_right = __x;  // y 的右孩子就是 x
-  __x->_M_parent = __y; // x 的父亲节点就是 y
+    __y->_M_right = __x;  // y 的右孩子就是 x
+    __x->_M_parent = __y; // x 的父亲节点就是 y
 }
 ```
 
 ### 红黑树的插入
 
-在红黑树中插入节点都是红色的。
+如果是第一次插入，由于原树为空，所以只会违反红-黑树的规则 2，所以只要把根节点涂黑即可。
+
+在红黑树中插入节点必须为红色，那么根据红黑树规则，该插入节点的父亲节点必须为黑，如果插入节点没有符合上述条件，就必须调整颜色并旋转树形。
+
+红黑树的插入相当于在二叉搜索树插入的基础上，为了重新恢复平衡，需要继续做调整(`_Rb_tree_rebalance`)操作。
+
+```
+// 从根节点出发
+void _M_insert(_Rb_tree_node<_Value>* node, _Rb_tree_node<_Value>*& root)
+{
+    _Rb_tree_node<_Value> *y = NULL;
+    _Rb_tree_node<_Value> *x = root;  // root 根节点
+    
+    while (x != NULL)
+    {
+        y = x;
+        if (node->_M_value_field < x->_M_value_field)
+        {
+            x = x->left;
+        }
+        else
+        {
+            x = x->right;
+        }
+    }
+    
+    node->parent = y;  //找到了位置，将当前 y 作为 node 的父节点  
+    
+    // 判断 node 是插在左子节点还是右子节点  
+    if (y)
+    {
+        if (node->_M_value_field < y->_M_value_field)
+        {
+            y->left = node;
+        }
+        else
+        {
+            y->right = node;
+        }
+    }
+    else 
+    {
+        root = node;
+    }
+    
+    // 调整
+    _Rb_tree_rebalance(node, root);
+}
+```
+
+
+**插入需要颜色改变和旋转调整的三种情况**
+
+* 插入节点的父亲节点是红色，叔叔节点是红色，调整颜色操作
+* 插入节点的父亲节点是红色，叔叔节点是黑色，插入节点是父亲节点的左孩子节点
+* 插入节点的父亲节点是红色，叔叔节点是黑色，插入节点是父亲节点的右孩子节点
+
+STL 源码：
+```cpp
+```
 
 ### 红黑树的删除
 
