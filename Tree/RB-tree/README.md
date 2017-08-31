@@ -204,11 +204,54 @@ void _M_insert(_Rb_tree_node<_Value>* node, _Rb_tree_node<_Value>*& root)
 **插入需要颜色改变和旋转调整的三种情况**
 
 * 插入节点的父亲节点是红色，叔叔节点是红色，调整颜色操作
-* 插入节点的父亲节点是红色，叔叔节点是黑色，插入节点是父亲节点的左孩子节点
-* 插入节点的父亲节点是红色，叔叔节点是黑色，插入节点是父亲节点的右孩子节点
+* 插入节点的父亲节点是红色，叔叔节点是黑色，插入节点是父亲节点的左孩子节点，做旋转操作
+* 插入节点的父亲节点是红色，叔叔节点是黑色，插入节点是父亲节点的右孩子节点，做旋转操作
 
-STL 源码：
+插入调整的 STL 源码：
 ```cpp
+inline void _Rb_tree_rebalance(_Rb_tree_node_base* __x, _Rb_tree_node_base*& __root)
+{
+    __x->_M_color = _S_rb_tree_red; // 新节点必为红色
+    while (__x != __root && __x->_M_parent->_M_color == _S_rb_tree_red) {  // 插入节点的父亲节点是红色
+        if (__x->_M_parent == __x->_M_parent->_M_parent->_M_left) { // 父亲节点为祖父节点的左孩子节点
+            _Rb_tree_node_base* __y = __x->_M_parent->_M_parent->_M_right; // 令 y 为叔叔节点，作为祖父节点的右孩子节点
+            if (__y && __y->_M_color == _S_rb_tree_red) { // 叔叔节点存在，且为红色
+                __x->_M_parent->_M_color = _S_rb_tree_black; // 将父亲节点的颜色改变为黑色
+                __y->_M_color = _S_rb_tree_black; // 将叔叔节点的颜色改变为黑色
+                __x->_M_parent->_M_parent->_M_color = _S_rb_tree_red;  // 将祖父节点的颜色改变为红色
+                __x = __x->_M_parent->_M_parent; // 将插入节点指向祖父节点
+            }
+            else { // 无叔叔节点，或者叔叔节点为黑色，做旋转操作
+                if (__x == __x->_M_parent->_M_right) {  // 插入节点是父亲节点的右孩子节点
+                    __x = __x->_M_parent; // 指向插入节点的父亲节点
+                    _Rb_tree_rotate_left(__x, __root); // 左旋转操作
+                }
+                __x->_M_parent->_M_color = _S_rb_tree_black;  // 将插入节点的父亲节点改为红色
+                __x->_M_parent->_M_parent->_M_color = _S_rb_tree_red; // 祖父节点为红色
+                _Rb_tree_rotate_right(__x->_M_parent->_M_parent, __root); // 将祖父节点做右旋转操作
+            }
+        }
+        else { // 父亲节点为祖父节点的右孩子节点
+            _Rb_tree_node_base* __y = __x->_M_parent->_M_parent->_M_left; // 令 y 为叔叔节点，作为祖父节点的左孩子节点
+            if (__y && __y->_M_color == _S_rb_tree_red) { // 叔叔节点存在，且为红色
+                __x->_M_parent->_M_color = _S_rb_tree_black; // 将父亲节点的颜色改变为黑色
+                __y->_M_color = _S_rb_tree_black; // 将叔叔节点的颜色改变为黑色
+                __x->_M_parent->_M_parent->_M_color = _S_rb_tree_red; // 将祖父节点的颜色改变为红色
+                __x = __x->_M_parent->_M_parent; // 将插入节点指向祖父节点
+            }
+            else { // 无叔叔节点，或者叔叔节点为黑色，做旋转操作
+                if (__x == __x->_M_parent->_M_left) { // 插入节点是父亲节点的左孩子节点
+                    __x = __x->_M_parent; // 指向插入节点的父亲节点
+                    _Rb_tree_rotate_right(__x, __root); // 右旋转操作
+                }
+                __x->_M_parent->_M_color = _S_rb_tree_black; // 将插入节点的父亲节点改为黑色
+                __x->_M_parent->_M_parent->_M_color = _S_rb_tree_red; // 祖父节点为红色
+                _Rb_tree_rotate_left(__x->_M_parent->_M_parent, __root); // 将祖父节点做左旋转操作
+            }
+        }
+    }
+    __root->_M_color = _S_rb_tree_black;  // 根节点永远为黑
+}
 ```
 
 ### 红黑树的删除
