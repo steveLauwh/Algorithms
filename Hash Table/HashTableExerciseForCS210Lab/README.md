@@ -2,6 +2,8 @@
 
 Application: Looking up Passwords
 
+该工程使用 C++ 实现，哈希表的哈希函数采用除法散列法，解决碰撞方式采用链接法(Chaining)。
+
 One possible use for a hash table is to store computer user login usernames and passwords.
 
 * `hashtbl.cpp` and `hashtble.h` -- contain the implementation of the hashtable class
