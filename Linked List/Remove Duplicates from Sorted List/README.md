@@ -32,14 +32,14 @@ public:
 
 递归和迭代两个版本。
 
-递归版：
+**递归版：**
 
 1. 确定递归终止条件: 当前访问节点为空；
 2. 返回链表，所以借助哑节点 dummy；
 3. 写一个递归函数，两个形参，前一个节点和当前节点；如果前一个节点与当前节点，比较，值相等，就删除当前节点，将前一个节点和下一个节点入参，继续递归；
    否则不等，将前一个节点的 next 节点 和 当前节点的 next 节点入参，继续递归。
    
-迭代版：
+**迭代版：**
 
 一个 for 循环搞定。
 
@@ -48,3 +48,15 @@ public:
 3. 如果前一个节点与当前节点的值相等，就删掉当前节点，否则前一个节点指向当前节点。
 
 ## Remove Duplicates from Sorted List II「LeetCode 82」
+
+题目：只要元素重复，就把所有重复的元素删除。
+
+```
+Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list.
+
+For example,
+Given 1->2->3->3->4->4->5, return 1->2->5.
+Given 1->1->1->2->3, return 2->3.
+```
+
+解题思路：
