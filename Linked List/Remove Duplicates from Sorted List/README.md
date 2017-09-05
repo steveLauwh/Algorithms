@@ -52,7 +52,8 @@ public:
 题目：只要元素重复，就把所有重复的元素删除。
 
 ```
-Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list.
+Given a sorted linked list, delete all nodes that have duplicate numbers, 
+leaving only distinct numbers from the original list.
 
 For example,
 Given 1->2->3->3->4->4->5, return 1->2->5.
@@ -70,5 +71,6 @@ Given 1->1->1->2->3, return 2->3.
 **迭代版：**
 
 1. 借用哑节点 dummy
-2. 终止条件：当前节点不为空
-3. 当有重复节点，需要借用一个 bool 变量，如果 bool 变量为 true，那么需要删除重复的最后一个元素。
+2. 判断终止条件：当前节点不为空
+3. 两个指针，初始时，一个指向哑节点 prev 指针，一个指向头结点 cur 指针
+4. 当有重复节点，需要借用一个 bool 变量，如果 bool 变量为 true，那么将 prev 的 next 指向最后一个重复节点的下一个节点。
