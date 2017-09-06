@@ -1,8 +1,15 @@
 ## Reverse Linked List「LeetCode 206」
 
-题目要求：旋转一个单链表，倒置链表。
+题目要求：反转一个单链表，倒置链表。
+
+1->2->3->4->5
+     ||
+5->4->3->2->1
 
 ```
+Hint:
+A linked list can be reversed either iteratively or recursively. Could you implement both?
+
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -21,7 +28,17 @@ public:
 
 解题思路：
 
+递归和迭代两个版本。
 
+迭代版本：
+
+1. 使用三个指针，prev 初始指向空，cur 初始指向 head，next 初始指向 cur->next
+2. 判断终止条件，cur 不为空，cur 一直向遍历到尾部
+3. 从头节点开始，一个个节点进行反转
+
+递归版本：
+
+对于递归实现，首先反转从第二个结点到最后一个结点的链表，然后再将头结点放到已反转链表的最后，函数返回新链表的头结点。
 
 ## Reverse Linked List II「LeetCode 92」
 
