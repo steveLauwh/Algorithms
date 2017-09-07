@@ -8,7 +8,7 @@
  */
 class Solution {
 public:
-    ListNode* reverseList(ListNode* head, int m, int n) {
+    ListNode* reverseBetween(ListNode* head, int m, int n) {
         if (!head || !(head->next)) {
             return head;
         }
