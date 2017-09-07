@@ -21,7 +21,7 @@ Could you do it in O(n) time and O(1) space?
 
 方法三：
 
-反转链表法，将链表后半段原地翻转，再将前半段、后半段依次比较，判断是否相等，时间复杂度 O（n），空间复杂度为 O(1)满足题目要求。
+反转链表法，将链表后半段原地翻转，再将前半段、后半段依次比较，判断是否相等，时间复杂度 O(n)，空间复杂度为 O(1) 满足题目要求。
 
 链表翻转可以参考 [Reverse Linked List](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Reverse%20Linked%20List) 的代码。
 
