@@ -92,12 +92,12 @@ public:
 
     class adjIterator {
     private:
-        DenseGraph &G;
+        WeightedDenseGraph &G;
         int v;
         int index;
 
     public:
-        adjIterator(DenseGraph &graph, int v) : G(graph) {
+        adjIterator(WeightedDenseGraph &graph, int v) : G(graph) {
             this->v = v;
             this->index = -1;
         }
