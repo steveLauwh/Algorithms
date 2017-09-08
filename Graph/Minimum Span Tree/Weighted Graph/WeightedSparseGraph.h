@@ -74,7 +74,7 @@ public:
             cout << "vertex " << i << ":\t";
 
             for(int j = 0; j < g[i].size(); j ++)
-                cout << "to: " << g[i][j]->v() << ", wt: " << g[i][j]->wt() << "\t";
+                cout << "to: " << g[i][j]->W() << ", wt: " << g[i][j]->wt() << "\t";
 
             cout << endl;
         }
