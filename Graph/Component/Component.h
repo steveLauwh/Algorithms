@@ -6,14 +6,14 @@
 
 using namespace std;
 
-// 求无权图的联通分量
+// 求无权图的连通分量
 template <typename Graph>
 class Component {
 private:
 	Graph &g;
 	bool *visited;  // 记录 DFS 过程中顶点是否被遍历
-	unsigned int counts;   // 记录联通分量的个数
-	int *id;    // 每个顶点所对应的联通分量标记
+	unsigned int counts;   // 记录连通分量的个数
+	int *id;    // 每个顶点所对应的连通分量标记
 
 	// 图的深度优先遍历 DFS
 	void dfs(int v) {
@@ -30,7 +30,7 @@ private:
 	}
 
 public:
-	// 构造函数，求出无权图的联通分量
+	// 构造函数，求出无权图的连通分量
 	Component(Graph &graph) : g(graph) {
 		visited = new bool[g.V()];
 		id = new int[g.V()];
@@ -41,7 +41,7 @@ public:
 			id[i] = -1;
 		}
 
-		// 图的联通分量
+		// 图的连通分量
 		for (int i = 0; i < g.V(); i++) {
 			if (!visited[i]) {
 				dfs(i);
@@ -59,7 +59,7 @@ public:
 		return counts;
 	}
 
-	// 查询顶点 v 和顶点 w 是否联通
+	// 查询顶点 v 和顶点 w 是否连通
 	bool isConnected(int v, int w) {
 		assert(v >= 0 && w < g.V());
 		assert(w >= 0 && w < g.V());
