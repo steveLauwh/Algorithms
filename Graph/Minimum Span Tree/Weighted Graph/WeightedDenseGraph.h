@@ -10,7 +10,7 @@ using namespace std;
 
 // 稠密图——用邻接矩阵表示
 template <typename Weight>
-class DenseGraph {
+class WeightedDenseGraph {
 private:
     int n;  // 图的顶点数
     int m;  // 图的边数
@@ -18,7 +18,7 @@ private:
     vector< vector<WeightedGraphEdge<Weight> *> > g; // 邻接矩阵的值用 0 和 1 表示
 
 public:
-    DenseGraph(int n, bool directed) {
+    WeightedDenseGraph(int n, bool directed) {
         assert(n >= 0);
         this->n = n;
         this->m = 0;
@@ -28,7 +28,7 @@ public:
         g = vector<vector<WeightedGraphEdge<Weight> *> >(n, vector<Edge<Weight> *>(n, NULL));
     }
 
-    ~DenseGraph() {
+    ~WeightedDenseGraph() {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (g[i][j] != NULL)
