@@ -10,7 +10,7 @@ using namespace std;
 
 // 稀疏图——用邻接表表示，带有权值
 template <typename Weight>
-class SparseGraph {
+class WeightedSparseGraph {
 private:
     int n;  // 图的顶点
     int m;  // 图的边数
@@ -18,7 +18,7 @@ private:
     vector< vector<WeightedGraphEdge<Weight>*> > g;  // 邻接表的特点，用向量表示，如果没有边为NULL，还可以用链表表示
 
 public:
-    SparseGraph(int n, bool directed) {
+    WeightedSparseGraph(int n, bool directed) {
         this->n = n;
         this->m = 0;  // 初始化没有任何边
         this->directed = directed;
@@ -27,7 +27,7 @@ public:
         g = vector< vector<WeightedGraphEdge<Weight>*> >(n, vector<WeightedGraphEdge<Weight>*>());
     }
 
-    ~SparseGraph() {
+    ~WeightedSparseGraph() {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < g[i].size(); j++) {
                 delete g[i][j];
