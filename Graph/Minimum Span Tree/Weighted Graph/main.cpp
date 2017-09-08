@@ -12,14 +12,14 @@ int main() {
     int V = 8;
     
     // Test Weighted Dense Graph，无向图
-    DenseGraph<double> g1 = DenseGraph<double>(V, false);
-    ReadGraph<DenseGraph<double>, double> readGraph1(g1, filename);
+    WeightedDenseGraph<double> g1 = WeightedDenseGraph<double>(V, false);
+    ReadWeightedGraph<WeightedDenseGraph<double>, double> readGraph1(g1, filename);
     g1.show();
     cout<<endl;
 
     // Test Weighted Sparse Graph
-    SparseGraph<double> g2 = SparseGraph<double>(V, false);
-    ReadGraph<SparseGraph<double>, double> readGraph2(g2, filename);
+    WeightedSparseGraph<double> g2 = WeightedSparseGraph<double>(V, false);
+    ReadWeightedGraph<ReadWeightedGraph<double>, double> readGraph2(g2, filename);
     g2.show();
     cout<<endl;
 
