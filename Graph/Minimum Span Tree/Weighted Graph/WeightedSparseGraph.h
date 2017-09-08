@@ -29,7 +29,7 @@ public:
 
     ~WeightedSparseGraph() {
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < g[i].size(); j++) {
+            for (unsigned int j = 0; j < g[i].size(); j++) {
                 delete g[i][j];
             }
         }
