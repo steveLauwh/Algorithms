@@ -100,7 +100,7 @@ public:
             return -1;
         }
 
-        int end() {
+        bool end() {
             return index >= G.V();
         }
     };
