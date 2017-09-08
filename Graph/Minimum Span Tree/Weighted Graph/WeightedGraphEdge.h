@@ -19,9 +19,9 @@ public:
     
     ~WeightedGraphEdge() {}
     
-    int U() { return u;} // 第一个顶点
+    int V() { return u;} // 第一个顶点
   
-    int V() { return v;} // 第二个顶点
+    int W() { return v;} // 第二个顶点
     
     T wt() {
         return weight; // 边的权值
