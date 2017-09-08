@@ -9,7 +9,7 @@
 
 using namespace std;
 
-template <typename Graph>
+template <typename Graph, typename Weight>
 class ReadWeightedGraph {
 public:
     // 从文件 filename 中读取有权图的信息, 存储进图 graph 中
@@ -31,12 +31,13 @@ public:
 	    stringstream s(line);
 
 	    int a, b;
+	    Weight weight;
 
 	    s >> a >> b;
 	    assert(a >= 0 && a < V);
             assert(b >= 0 && b < V);
 
-	    graph.addEdge(a, b);
+	    graph.addEdge(a, b, weight);
         }
     }
 };
