@@ -1,4 +1,4 @@
-## 最小生成树 Minimum Span Trees
+## 最小生成树 Minimum Span Tree
 
 ### 有权图
 
