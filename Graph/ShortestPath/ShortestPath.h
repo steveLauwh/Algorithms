@@ -29,7 +29,7 @@ public:
         
         this->s = s;
         
-        // BFS 广度优先遍历
+        // BFS 广度优先遍历，使用队列实现
         queue<int> q;
         
         q.push(s);
