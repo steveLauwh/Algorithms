@@ -10,33 +10,33 @@
 using namespace std;
 
 template <typename Graph>
-class ReadGraph {
+class ReadWeightedGraph {
 public:
     // 从文件 filename 中读取有权图的信息, 存储进图 graph 中
-    ReadGraph(Graph &graph, const string &filename) {
-	      ifstream file(filename);
-	      string line;
-	      int V, E;
+    ReadWeightedGraph(Graph &graph, const string &filename) {
+        ifstream file(filename);
+        string line;
+	int V, E;
 
-	      assert(file.is_open());
+	assert(file.is_open());
         
-	      assert(getline(file, line)); // 文件第一行，V 和 E
-	      stringstream s(line);
-	      s >> V >> E;
+	assert(getline(file, line)); // 文件第一行，V 和 E
+	stringstream s(line);
+	s >> V >> E;
 
-	      assert(V == graph.V());
+	assert(V == graph.V());
 
-	      for (int i = 0; i < E; i++) {
-		        assert(getline(file, line));
-		        stringstream s(line);
+	for (int i = 0; i < E; i++) {
+	    assert(getline(file, line));
+	    stringstream s(line);
 
-		        int a, b;
+	    int a, b;
 
-		        s >> a >> b;
-		        assert(a >= 0 && a < V);
-		        assert(b >= 0 && b < V);
+	    s >> a >> b;
+	    assert(a >= 0 && a < V);
+            assert(b >= 0 && b < V);
 
-		        graph.addEdge(a, b);
+	    graph.addEdge(a, b);
         }
     }
 };
