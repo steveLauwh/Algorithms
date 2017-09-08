@@ -25,16 +25,16 @@ public:
 	assert(V == graph.V());
 
 	for (int i = 0; i < E; i++) {
-		assert(getline(file, line));
-		stringstream s(line);
+	    assert(getline(file, line));
+	    stringstream s(line);
+	    
+	    int a, b;
 
-		int a, b;
+	    s >> a >> b;
+	    assert(a >= 0 && a < V);
+	    assert(b >= 0 && b < V);
 
-		s >> a >> b;
-		assert(a >= 0 && a < V);
-		assert(b >= 0 && b < V);
-
-		graph.addEdge(a, b);
+	    graph.addEdge(a, b);
 	}
     }
 };
