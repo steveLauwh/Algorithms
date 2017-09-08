@@ -33,7 +33,7 @@ public:
 	    int a, b;
 	    Weight weight;
 
-	    s >> a >> b;
+	    s >> a >> b >> weight;
 	    assert(a >= 0 && a < V);
             assert(b >= 0 && b < V);
 
