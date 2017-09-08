@@ -30,7 +30,7 @@ public:
 
     ~WeightedDenseGraph() {
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
+            for (unsigned int j = 0; j < n; j++) {
                 if (g[i][j] != NULL)
                     delete g[i][j];
             }
