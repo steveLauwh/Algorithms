@@ -6,6 +6,7 @@
 
 using namespace std;
 
+// 边类
 template <typename T>
 class WeightedGraphEdge {
 public:
