@@ -15,7 +15,7 @@ private:
 	unsigned int counts;   // 记录联通分量的个数
 	int *id;    // 每个顶点所对应的联通分量标记
 
-	// 图的深度优先遍历
+	// 图的深度优先遍历 DFS
 	void dfs(int v) {
 		visited[v] = true;
 		id[v] = counts;
