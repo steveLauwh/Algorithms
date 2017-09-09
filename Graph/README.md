@@ -599,11 +599,19 @@ private:
 
 ### [最小生成树](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Graph/Minimum%20Span%20Tree)
 
-最小生成树主要针对[有权图](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Graph/Minimum%20Span%20Tree/Weighted%20Graph)、针对连通图。
+最小生成树主要针对[有权无向图](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Graph/Minimum%20Span%20Tree/Weighted%20Graph)、针对连通图。
 
 最小生成树是对于 V 个节点的有权连通图，找 V-1 条边连接着 V 个顶点的总权值最小的树。
 
-最小生成树可以用 [Prim 算法](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Graph/Minimum%20Span%20Tree/Prim)和 [Kruskal 算法](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Graph/Minimum%20Span%20Tree/Kruskal)求出。
+最小生成树可以用 [Prim 算法](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Graph/Minimum%20Span%20Tree/Prim)和 [Kruskal 算法](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Graph/Minimum%20Span%20Tree/Kruskal)实现。
+
+最小生成树在实际工程中使用，如网络设计、电缆布线设计、电路设计。
+
+切分定理(Cut Property)：
+
+* 把图中的节点分为两部分，成为一个切分
+* 如果一条边的两个端点属于切分不同的两边，那么这个边叫做横切边(Crossing Edge)
+* 给定任意切分，横切边中的权值最小的边必属于最小生成树
 
 ## 参考资料
 
