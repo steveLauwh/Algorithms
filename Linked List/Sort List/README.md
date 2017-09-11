@@ -1,4 +1,4 @@
-## Sort List
+## Sort List「LeetCode 」
 
 题目：使用常数级的空间复杂度，时间复杂度为 O(nlogn) 排序一个链表。
 
@@ -15,6 +15,6 @@ Sort a linked list in O(n log n) time using constant space complexity.
 
 1. 如何找出链表的中间点
 2. 两部分递归，递归完后，两部分已排序
-3. 最后向上进行合并操作
+3. 最后对两个已排序链表进行合并操作(Merge Two Sorted Lists) 
 
 
