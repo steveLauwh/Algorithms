@@ -11,3 +11,7 @@
 * [Palindrome Linked List](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Palindrome%20Linked%20List)
 * [Partition List](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Partition%20List)
 * [Rotate List](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Rotate%20List)
+* [Sort List](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Sort%20List)
+* [Insertion Sort List](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Insertion%20Sort%20List)
+* [Swap Nodes in Pairs](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Swap%20Nodes%20in%20Pairs)
+* [Odd Even Linked List ](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Odd%20Even%20Linked%20List)
