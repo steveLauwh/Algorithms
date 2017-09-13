@@ -9,7 +9,7 @@
 class Solution {
 public:
     void reorderList(ListNode* head) {
-        if (!head || !(head->next)) {
+        if (!head || !(head->next) || !(head->next->next)) {
             return;
         }
                
@@ -17,21 +17,22 @@ public:
         ListNode *fast = head;
         
         // 1. 利用快慢指针，找出中间位置
-        while (slow && fast) {
+        while (fast->next && fast->next->next) {
             slow = slow->next;
-            fast = fast->next;
-            
-            if (fast) {
-                fast = fast->next;
-            }
+            fast = fast->next->next;
         }
         
+        // 需要把前半分的尾节点置 NULL
+        ListNode *last = slow->next;
+        
+        slow->next = NULL;
+        
         // 2. 中心位置的后半段进行旋转
-        slow = reverseList(slow);
+        last = reverseList(last);
         
         // 3. 将后半段插入到前半段操作
         ListNode *prev = head;
-        ListNode *cur = slow;
+        ListNode *cur = last;
         
         while (cur) {
             ListNode *node1 = prev->next;
