@@ -20,7 +20,7 @@ Merge k sorted linked lists and return it as one sorted list. Analyze and descri
 
 将 K 个有序链表，递归划分。
 
-方法三：方法妙
+**方法三：方法妙**
 
 借助最小堆，C++ STL priority_queue(默认最大堆)
 
