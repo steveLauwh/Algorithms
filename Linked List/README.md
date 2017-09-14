@@ -15,3 +15,7 @@
 * [Insertion Sort List](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Insertion%20Sort%20List)
 * [Swap Nodes in Pairs](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Swap%20Nodes%20in%20Pairs)
 * [Odd Even Linked List ](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Odd%20Even%20Linked%20List)
+* [Remove Nth Node From End of List](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Remove%20Nth%20Node%20From%20End%20of%20List)
+* [Reorder List](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Reorder%20List)
+* [Convert Sorted List to Binary Search Tree](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Convert%20Sorted%20List%20to%20Binary%20Search%20Tree)
+* [Copy List with Random Pointer](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Copy%20List%20with%20Random%20Pointer)
