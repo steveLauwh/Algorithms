@@ -1,3 +1,4 @@
+// 方法一：
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -52,4 +53,55 @@ public:
         
         return cur;
     }
+};
+
+
+// 方法二：
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* sortedListToBST(ListNode* head) {
+        if(head == nullptr)
+            return nullptr;
+        ListNode* add = head;
+        int n = 0;
+        while(add)
+        {
+            add = add -> next;
+            n++;
+        }
+        return makeBST(head , 0 , n - 1);
+        
+    }
+    
+    TreeNode* makeBST(ListNode* &head , int start ,int end)
+    {
+        if(start > end)
+            return nullptr;
+        int mid = (start+end+1) >> 1;
+        
+        TreeNode* lleft = makeBST(head , start , mid - 1);
+        TreeNode* parent = new TreeNode(head -> val);
+        parent -> left = lleft;
+        head = head -> next;
+        TreeNode* rright = makeBST(head , mid+1 , end);
+        parent -> right = rright;
+        return parent;
+    }    
 };
