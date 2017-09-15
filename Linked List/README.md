@@ -19,3 +19,7 @@
 * [Reorder List](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Reorder%20List)
 * [Convert Sorted List to Binary Search Tree](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Convert%20Sorted%20List%20to%20Binary%20Search%20Tree)
 * [Copy List with Random Pointer](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Copy%20List%20with%20Random%20Pointer)
+* [Plus One Linked List](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Plus%20One%20Linked%20List)
+* [Design Phone Directory](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Design%20Phone%20Directory)
+* [Reverse Nodes in k-Group](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Reverse%20Nodes%20in%20k-Group)
+* [Merge k Sorted Lists](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Merge%20k%20Sorted%20Lists)
