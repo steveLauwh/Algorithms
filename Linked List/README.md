@@ -23,3 +23,65 @@
 * [Design Phone Directory](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Design%20Phone%20Directory)
 * [Reverse Nodes in k-Group](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Reverse%20Nodes%20in%20k-Group)
 * [Merge k Sorted Lists](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Merge%20k%20Sorted%20Lists)
+
+## 链表的测试
+
+LinkedListTest.cpp
+```cpp
+#include <iostream>
+
+using namespace std;
+
+/**
+ * Definition for singly-linked list.
+ */
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
+
+class LinkedList {
+public:
+    ListNode* createLinkedList(int* arr, int n) {
+        if (n == 0) {
+            return NULL;
+        }
+       
+        ListNode *head = new ListNode(arr[0]);
+        ListNode *cur = head;
+        
+        for (int i = 1; i < n; i++) {
+            cur->next = new ListNode(arr[i]);
+            cur = cur->next;
+        }
+        
+        return head;
+    }
+    
+    void deleteLinkedList(ListNode* head) {
+        ListNode *cur = head;
+        
+        while (cur) {
+            ListNode *deleteNode = cur;
+            cur = cur->next;
+            delete deleteNode;
+        }
+        
+        return;
+    }
+    
+    void printLinkedList(ListNode* head) {
+        ListNode *cur = head;
+        
+        while (cur) {
+            cout << cur->val << " -> ";
+            cur = cur->next;
+        }
+        
+        cur << "NULL" << endl;
+        
+        return;
+    }
+}
+```
