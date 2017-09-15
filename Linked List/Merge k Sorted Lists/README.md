@@ -28,3 +28,56 @@ Merge k sorted linked lists and return it as one sorted list. Analyze and descri
 
 总时间复杂度是O(nklogk)。空间复杂度是堆的大小，即为O(k)。
 
+```cpp
+// 方法三：利用最小堆
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        if (!lists.size()) {
+            return NULL;
+        }
+        
+        ListNode dummy(-1);
+        
+        ListNode *node = &dummy;
+        
+        priority_queue<ListNode*, vector<ListNode*>, cmp> q;
+        
+        // 入堆
+        for (int i = 0; i < lists.size(); i++) {
+            if (lists[i])
+                q.push(lists[i]);
+        }
+        
+        // 出堆
+        while (!q.empty()) {
+            ListNode *p = q.top();
+            q.pop();
+            node->next = p;
+            node = p;
+            
+            // 出来的链表，如果没有遍历完，把该链表的节点继续入堆
+            if (p->next) {
+                q.push(p->next);
+            }
+        }
+        
+        return dummy.next;
+    }
+    
+private:
+    struct cmp {
+        bool operator ()(const ListNode* a, ListNode* b) {
+            return a->val > b->val;
+        }
+    };
+};
+```
