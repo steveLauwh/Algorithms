@@ -1,4 +1,4 @@
-#ifndef WEIGHTED_DENSE_GRAPH_H
+﻿#ifndef WEIGHTED_DENSE_GRAPH_H
 #define WEIGHTED_DENSE_GRAPH_H
 
 #include <vector>
@@ -25,7 +25,7 @@ public:
         this->directed = directed;
 
         // g初始化为 n*n 的矩阵, 每一个 g[i][j] 指向一个边的信息, 初始化为NULL
-        g = vector<vector<WeightedGraphEdge<Weight> *> >(n, vector<Edge<Weight> *>(n, NULL));
+        g = vector<vector<WeightedGraphEdge<Weight> *> >(n, vector<WeightedGraphEdge<Weight> *>(n, NULL));
     }
 
     ~WeightedDenseGraph() {
