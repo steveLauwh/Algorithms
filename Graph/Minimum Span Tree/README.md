@@ -1,4 +1,4 @@
-## 最小生成树 Minimum Span Tree
+﻿## 最小生成树 Minimum Span Tree
 
 在一给定的无向图 G = (V, E) 中，w(u, v) 代表连接顶点 u 与顶点 v 的边，而 w(u, v) 代表此边的权重，若存在 T 为 E 的子集且为无循环图，使得
 的 w(T) 最小，则此 T 为 G 的最小生成树。
@@ -19,7 +19,7 @@
 
 ### Prim 算法——贪心算法
 
-* 利用最小堆实现 Prim 算法
+* [利用最小堆实现 Prim 算法](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Graph/Minimum%20Span%20Tree/Prim/LazyPrimMST)
 
 原理：根据切分定理，任意选取图中的一个顶点，把该顶点的所有横切边，入最小堆，取出最小权值(该边一定为最小生成树的边)，该边的另一个顶点没有访问过，现在对两个顶点进行切分，它们的所有横切边，入最小堆，取出最小权值，如果该最小权值边的另一个顶点没有被访问过，就加入切分阵营，继续加入横切边到最小堆中，反复操作，直到所有顶点都被访问过，找出最小生成树。
 
@@ -27,7 +27,8 @@
 
 **缺点：图中的每个边都会进入最小堆中。**
   
-* 利用最小索引堆实现 Prim 算法
+* [利用最小索引堆实现 Prim 算法](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Graph/Minimum%20Span%20Tree/Prim/PrimMST)
  
 时间复杂度为 O(ElogV)。
+
 ### Kruskal 算法
