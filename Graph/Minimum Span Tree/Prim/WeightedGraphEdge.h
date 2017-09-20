@@ -28,7 +28,7 @@ public:
         return weight; // 边的权值
     }
   
-    // 求另一条边
+    // 边的另一个顶点
     int other(int x) {
         assert(x == u || x == v);
         return x == u ? v : u;
