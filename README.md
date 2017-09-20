@@ -3,6 +3,8 @@ Solutions for some common data structure and algorithm problems written in C++ a
 
 ## [Linked List](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List)
 
+## [Array](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Array)
+
 ## [String](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/String)
 
 ## [Stack](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Stack)
