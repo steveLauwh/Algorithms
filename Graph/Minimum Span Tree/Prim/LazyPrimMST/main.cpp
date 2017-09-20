@@ -7,7 +7,7 @@
 
 using namespace std;
 
-// 测试最小生成树算法
+// 娴嬭瘯鏈�灏忕敓鎴愭爲绠楁硶
 int main() {
 
     string filename = "test.txt";
@@ -20,7 +20,7 @@ int main() {
     cout << "Test Lazy Prim MST:" << endl;
     LazyPrimMST<WeightedSparseGraph<double>, double> lazyPrimMST(g);
     vector<WeightedGraphEdge<double>> mst = lazyPrimMST.mstEdges();
-    for( int i = 0 ; i < mst.size() ; i ++ )
+    for( unsigned int i = 0 ; i < mst.size() ; i ++ )
         cout << mst[i] << endl;
     
     cout << "The MST weight is: " << lazyPrimMST.result() << endl;

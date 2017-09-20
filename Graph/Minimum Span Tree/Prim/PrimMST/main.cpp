@@ -1,0 +1,31 @@
+#include <iostream>
+#include <iomanip>
+#include "WeightedDenseGraph.h"
+#include "WeightedSparseGraph.h"
+#include "ReadWeightedGraph.h"
+#include "PrimMST.h"
+
+using namespace std;
+
+// Prim MST
+int main() {
+
+    string filename = "test.txt";
+    int V = 8;
+
+    WeightedSparseGraph<double> g = WeightedSparseGraph<double>(V, false);
+    ReadWeightedGraph<WeightedSparseGraph<double>, double> readGraph(g, filename);
+
+    // Test Prim MST
+    cout << "Test Prim MST:" << endl;
+    PrimMST<WeightedSparseGraph<double>, double> primMST(g);
+    vector<WeightedGraphEdge<double>> mst = primMST.mstEdges();
+    for( unsigned int i = 0 ; i < mst.size() ; i ++ )
+        cout << mst[i] << endl;
+    
+    cout << "The MST weight is: " << primMST.result() << endl;
+
+    cout << endl;
+
+    return 0;
+}

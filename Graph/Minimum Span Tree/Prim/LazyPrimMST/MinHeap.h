@@ -19,7 +19,7 @@ public:
     
     // 构造函数，通过给定一个数组，创建一个最小堆，O(n)
     MinHeap(T arr[], int n) {
-        data = new Item[n + 1];
+        data = new T[n + 1];
         capacity = n;
         
         for (int i = 0; i < n; i++) {
@@ -80,7 +80,7 @@ private:
     
     void shiftUp(int k) {
         while (k > 1 && data[k/2] > data[k]) {
-            swap(data[k/2, data[k]]);
+            swap(data[k/2], data[k]);
             k /= 2;
         }
     }
