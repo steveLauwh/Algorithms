@@ -25,10 +25,12 @@
 
 时间复杂度为 O(ElogE)。
 
-**缺点：图中的每个边都会进入最小堆中。**
+**缺点：图中的每个边都会进入最小堆中，并且进入的横切边不一定是最小生成树的边。**
   
 * [利用最小索引堆实现 Prim 算法](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Graph/Minimum%20Span%20Tree/Prim/PrimMST)
  
 时间复杂度为 O(ElogV)。
+
+每个顶点对应索引，每个顶点总是保存最小的权值。
 
 ### Kruskal 算法
