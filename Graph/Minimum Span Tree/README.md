@@ -5,7 +5,7 @@
  
 最小生成树其实是最小权重生成树的简称。
 
-如果无向连通图中，边的权值有相等情况，那么最小生成树不只有一条。
+如果无向连通图中，边的权值有相等情况(如果横切边有相等的边)，那么最小生成树不只有一条。
 
 ### [有权图](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Graph/Minimum%20Span%20Tree/Weighted%20Graph)
 
@@ -33,9 +33,12 @@
 
 每个顶点对应索引，每个顶点总是保存最小的权值。
 
-### Kruskal 算法
+### [Kruskal 算法](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Graph/Minimum%20Span%20Tree/Kruskal)
 
-原理：对图中的所有边的权值进行排序，依次取最小的边，并且利用并查集来判断环。
+最小堆 + 并查集 实现 Kruskal 算法。
+
+原理：对图中的所有边的权值进行`排序`，依次取最小的边，并且利用`并查集`来判断环。
 
 利用 Union Find 来判断是否构成环。
 
+时间复杂度为 O(ElogE)。
