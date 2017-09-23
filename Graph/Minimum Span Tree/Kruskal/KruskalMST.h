@@ -43,7 +43,7 @@ public:
             
             // 否则, 将这条边添加进最小生成树, 同时标记边的两个端点连通
             mst.push_back(e);
-            uf.unionElements( e.v() , e.w() );
+            uf.unionElements( e.V() , e.W() );
         }
         
         mstWeight = mst[0].wt();
