@@ -16,7 +16,7 @@ int main() {
     WeightedSparseGraph<double> g = WeightedSparseGraph<double>(V, false);
     ReadWeightedGraph<WeightedSparseGraph<double>, double> readGraph(g, filename);
 
-    // Test Prim MST
+    // Test Kruskal MST
     cout << "Test Prim MST:" << endl;
     KruskalMST<WeightedSparseGraph<double>, double> kruskalMST(g);
     vector<WeightedGraphEdge<double>> mst = kruskalMST.mstEdges();
