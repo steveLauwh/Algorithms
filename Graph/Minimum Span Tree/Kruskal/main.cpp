@@ -17,14 +17,14 @@ int main() {
     ReadWeightedGraph<WeightedSparseGraph<double>, double> readGraph(g, filename);
 
     // Test Kruskal MST
-    cout << "Test Prim MST:" << endl;
+    cout << "Test Kruskal MST:" << endl;
     KruskalMST<WeightedSparseGraph<double>, double> kruskalMST(g);
     vector<WeightedGraphEdge<double>> mst = kruskalMST.mstEdges();
     
     for( unsigned int i = 0 ; i < mst.size() ; i ++ )
         cout << mst[i] << endl;
     
-    cout << "The Kruskal MST weight is: " << primMST.result() << endl;
+    cout << "The Kruskal MST weight is: " << kruskalMST.result() << endl;
 
     cout << endl;
 
