@@ -613,6 +613,14 @@ private:
 * 如果一条边的两个端点属于切分不同的两边，那么这个边叫做横切边(Crossing Edge)
 * 给定任意切分，横切边中的权值最小的边必属于最小生成树
 
+### [最短路径算法](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Graph/Shortest-path%20Algorithms)
+
+对一个有权有向图，求单源最短路径问题。
+
+给定一个有权图 G = (V, E) 和一个特定顶点 s 作为输入，找出从 s 到 G 中每一个其它顶点的最短有权路径。
+
+
+
 ## 参考资料
 
 * https://github.com/liuyubobobo/Play-with-Algorithms
