@@ -10,3 +10,7 @@ vector 是一个能够存放任意类型的动态数组，能够增加和压缩�
 * [Move Zeroes](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Array/Move%20Zeroes)
 * [Remove Element](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Array/Remove%20Element)
 * [Remove Duplicates from Sorted Array](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Array/Remove%20Duplicates%20from%20Sorted%20Array)
+* [Merge Sorted Array](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Array/Merge%20Sorted%20Array)
+* [Two Sum](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Array/Two%20Sum)
+* [Sort Colors](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Array/Sort%20Colors)
+* [Rotate Array](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Array/Rotate%20Array)
