@@ -130,7 +130,7 @@ private:
 
         for( int i = 0 ; i < G.V() ; i ++ ){
             typename Graph::adjIterator adj(G,i);
-            for( Edge<Weight>* e = adj.begin() ; !adj.end() ; e = adj.next() )
+            for( WeightedGraphEdge<Weight>* e = adj.begin() ; !adj.end() ; e = adj.next() )
                 if( from[e->V()] && distTo[e->V()] + e->wt() < distTo[e->W()] )
                     return true;
         }
