@@ -37,8 +37,8 @@ private:
             ret.push_back(temp);
         }
         
-        helper(root->left, sum - root->val, temp, ret);
-        helper(root->right, sum - root->val, temp, ret);
+        dfs(root->left, sum - root->val, temp, ret);
+        dfs(root->right, sum - root->val, temp, ret);
         
         // 不属于路径和，删除，返回上一个节点
         temp.pop_back();
