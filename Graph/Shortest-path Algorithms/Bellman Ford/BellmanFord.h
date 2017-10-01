@@ -12,7 +12,7 @@ template <typename Graph, typename Weight>
 class BellmanFord {
 public:
     // 构造函数
-    BeallmanFord(Graph &graph, int s) : G(graph) {
+    BellmanFord(Graph &graph, int s) : G(graph) {
         this->s = s;
         distTo = new Weight[G.V()];
         

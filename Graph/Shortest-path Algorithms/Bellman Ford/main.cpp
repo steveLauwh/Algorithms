@@ -12,11 +12,11 @@ int main() {
     int V = 5;
 
     // 有向图
-    SparseGraph<int> g = SparseGraph<int>(V, true);
-    ReadGraph<SparseGraph<int>, int> readGraph(g, filename);
+    WeightedSparseGraph<int> g = WeightedSparseGraph<int>(V, true);
+    ReadWeightedGraph<WeightedSparseGraph<int>, int> readGraph(g, filename);
 
     cout<<"Test Bellman-Ford: "<<endl<<endl;
-    BellmanFord<SparseGraph<int>, int> bellmanFord(g, 0);
+    BellmanFord<WeightedSparseGraph<int>, int> bellmanFord(g, 0);
     if( bellmanFord.negativeCycle() )
         cout<<"The graph contain negative cycle!"<<endl;
     else

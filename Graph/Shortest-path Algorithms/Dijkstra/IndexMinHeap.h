@@ -12,7 +12,8 @@ class IndexMinHeap
 {
 private:
     T *data;        // 存放最小索引堆的数据
-    int *index;     // 存放最小索引堆的索引
+    int *index;     // 存放最小索引堆的索引, indexe[x] = i 表示索引i在x的位置
+    int *reverse;   // 最小索引堆中的反向索引, reverse[i] = x 表示索引i在x的位置
     int capacity;   // 容量
     int count;      // 索引堆的元素个数
   
@@ -22,6 +23,8 @@ private:
         while (i > 1 && data[index[i/2]] > data[index[i]])
         {
             swap(index[i/2], index[i]);
+            reverse[index[i/2]] = i/2;
+            reverse[index[i]] = i;
             i /= 2;
         }
     }
@@ -40,18 +43,24 @@ private:
             if (data[index[i]] < data[index[j]])
                 break;
           
-            swap(data[index[i]], data[index[j]]);
-            
+            swap(index[i], index[j]);
+            reverse[index[i]] = i;
+            reverse[index[j]] = j;
             i = j;
         }
     }
      
   
 public:
-    IndexMinHeap(int capacity)
-    {
-        data = new T[capacity + 1];
-        index = new int[capacity + 1];
+    // 构造函数, 构造一个空的索引堆, 可容纳capacity个元素
+    IndexMinHeap(int capacity){
+
+        data = new T[capacity+1];
+        index = new int[capacity+1];
+        reverse = new int[capacity+1];
+
+        for( int i = 0 ; i <= capacity ; i ++ )
+            reverse[i] = 0;
         count = 0;
         this->capacity = capacity;
     }
@@ -60,6 +69,7 @@ public:
     {
         delete[] data;
         delete[] index;
+	delete[] reverse;
     }
   
     int size()
@@ -82,9 +92,11 @@ public:
       
         i = i + 1;
         data[i] = item;
+
+
+        index[count+1] = i; // 向存储索引的数组尾端插入索引
+	reverse[i] = count+1;
         count++;
-        index[count] = i; // 向存储索引的数组尾端插入索引
-      
         shiftUp(count);  // 调整存储索引的堆
     }
   
@@ -96,6 +108,8 @@ public:
         T ret = data[index[1]]; // 最小元素
         // 调整存储索引的堆
         swap(index[1], index[count]);
+        reverse[index[count]] = 0;
+        reverse[index[1]] = 1;
         count--;
         shiftDown(1); // 调整存储索引的堆
       
@@ -109,6 +123,8 @@ public:
         
         int ret = index[1] - 1; // 用户，从索引 0 开始
         swap(index[1], index[count]);
+        reverse[index[count]] = 0;
+        reverse[index[1]] = 1;
         count--;
         shiftDown(1);
       
@@ -130,11 +146,17 @@ public:
         
         return index[1] - 1;
     }
+
+    // 看索引i所在的位置是否存在元素
+    bool contain( int index ){
+
+        return reverse[index+1] != 0;
+    }
      
     // 获取最小索引堆中索引为i的元素
     T getItem(int i)
     {
-        assert(i + 1 >= 1 && i + 1 <= capacity);
+        assert( contain(i) );
         
         return data[i+1];
     }
@@ -142,22 +164,14 @@ public:
     // 将最小索引堆中索引为 i 的元素修改为 newItem
     void change(int i, T newItem)
     {
+        assert( contain(i) );
         i += 1;
         data[i] = newItem;
-        
-        // 找到indexes[j] = i, j表示data[i]在堆中的位置
-        // 之后shiftUp(j), 再shiftDown(j)
-        for (int j = 1; j <= count; j++)
-        {
-            if (index[j] == i)
-            {
-                shiftUp(j);
-                shiftDown(j);
-                
-                return;
-            }
-        }
+
+	shiftUp( reverse[i] );
+        shiftDown( reverse[i] );
     }
+
 };
 
 #endif
