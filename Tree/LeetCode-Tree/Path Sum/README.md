@@ -33,8 +33,8 @@ Given a binary tree and a sum, find all root-to-leaf paths where each path's sum
 
 For example:
 Given the below binary tree and sum = 22,
-              5
-             / \
+              5
+             / \
             4   8
            /   / \
           11  13  4
@@ -55,7 +55,7 @@ return
 
 ## Path Sum III「LeetCode 437」
 
-题目：
+题目：给定一个二叉树和 sum，可以不必从根节点开始遍历，二叉树的节点值有正负，找出有多少条路径和为 sum。
 
 ```
 You are given a binary tree in which each node contains an integer value.
@@ -86,3 +86,10 @@ Return 3. The paths that sum to 8 are:
 2.  5 -> 2 -> 1
 3. -3 -> 11
 ```
+
+解题思路：递归思想，DFS
+
+1. 先序遍历，对于每一个节点都有记录了一条从根节点到当前节点到路径，同时用一个变量 curSum 记录路径节点总和，
+   然后我们看 curSum 和 sum 是否相等，相等的话结果 res 加 1
+2. 不等的话继续查看子路径和有没有满足题意的，做法就是每次去掉一个节点，看路径和是否等于给定值，注意最后必须留一个节点，不能全去掉了，因为如果全去掉了，路径之和为 0
+
