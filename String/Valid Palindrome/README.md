@@ -23,3 +23,26 @@ For the purpose of this problem, we define empty string as valid palindrome.
 4. 等左右指针都找到字母数字时，比较这两个字符，若相等，则继续比较下面两个分别找到的字母数字，若不相等，直接返回false
 
 ## Valid Palindrome II「LeetCode 680」
+
+题目：在允许可以删除一个字符的情况下，判断该字符串是否为回文。
+
+```c
+Given a non-empty string s, you may delete at most one character. Judge whether you can make it a palindrome.
+
+Example 1:
+Input: "aba"
+Output: True
+
+Example 2:
+Input: "abca"
+Output: True
+
+Explanation: You could delete the character 'c'.
+Note:
+The string will only contain lowercase characters a-z. The maximum length of the string is 50000.
+```
+
+解题思路：递归
+
+1. 字符串只包含小写字符 a-z，方法类似 Valid Palindrome
+2. 两个指针分别指向首尾，如果两头的字符不一致，则需要删除前者或者后者，完成删除后判断剩余字符串是否为回文。
