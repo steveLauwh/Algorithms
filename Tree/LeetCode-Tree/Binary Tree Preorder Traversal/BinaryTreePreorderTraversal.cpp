@@ -40,7 +40,7 @@ public:
             return vector<int>();
         }
         
-        while (temp || st.size() > 0) {
+        while (temp || !st.empty()) {
             if (temp) {
                 st.push(temp);
                 res.push_back(temp->val);
