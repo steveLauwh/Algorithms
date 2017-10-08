@@ -25,3 +25,10 @@ Note: Recursive solution is trivial, could you do it iteratively?
 
 迭代思想
 
+使用栈实现迭代。
+
+1. 根节点先入栈，当栈顶节点的左右子节点都没有，就把栈顶节点存储到向量中
+2. 如果有左右子节点，先入右节点，再入左节点
+
+
+
