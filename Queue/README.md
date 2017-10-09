@@ -38,3 +38,5 @@ A a = q.pop();
 所以 STL std::queue 结合 front 和 pop 两个函数，在其元素类型的拷贝构造函数可能抛出异常的情况下，仍然能达到强异常安全级别。
 
 ## LeetCode Queue
+
+* [Moving Average from Data Stream](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Queue/Moving%20Average%20from%20Data%20Stream)
