@@ -1,5 +1,9 @@
 ## 基本数据结构——链表
 
+对表的所有操作操作都可以使用数组来实现。由于插入和删除的线性开销，那么引入另一种实现方式：链表。
+
+## LeetCode Linked List
+
 * [Linked List Cycle](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Linked%20List%20Cycle)
 * [Delete Node in a Linked List](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Delete%20Node%20in%20a%20Linked%20List)
 * [Add Two Numbers](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Add%20Two%20Numbers)
