@@ -27,3 +27,4 @@ Solutions for some common data structure and algorithm problems written in C++ a
 # Reference
 
 * coursera: [Algorithms, Part I](https://www.coursera.org/learn/algorithms-part1)
+* LeetCode：http://blog.csdn.net/linhuanmars
