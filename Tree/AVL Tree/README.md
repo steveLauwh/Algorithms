@@ -93,3 +93,7 @@ TreeNode* RightLeftRotate(TreeNode* root) {
 ```
 
 ## AVL 树的插入和删除操作
+
+## 参考资料
+
+* http://dongxicheng.org/structure/avl/
