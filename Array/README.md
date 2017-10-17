@@ -6,6 +6,17 @@
 
 vector 是一个能够存放任意类型的动态数组，能够增加和压缩数据。
 
+**set 和 map 的运用：**
+
+| 项目        | 普通数组实现    |  顺序数组实现 |二分搜索树实现(平衡) |哈希表实现 |
+| --------   | :-----:  | :----:  | :----:  | :----:  |
+| 插入     | O(1) |   O(n)    |  O(logn) |  O(1) | 
+| 查找       |  O(n)   |   O(logn)   | O(logn)|O(1)|
+| 删除        |    O(n)    | O(n) | O(logn)|O(1)|
+
+C++：map 和 set 的底层实现是红黑树(平衡二叉树)，unordered_map 和 unordered_set 的底层实现是哈希表。
+
+## LeetCode Array
 
 * [Move Zeroes](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Array/Move%20Zeroes)
 * [Remove Element](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Array/Remove%20Element)
