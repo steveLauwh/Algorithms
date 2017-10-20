@@ -10,3 +10,8 @@
 * [Balanced Binary Tree](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Tree/LeetCode-Tree/Balanced%20Binary%20Tree)
 * [Path Sum](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Tree/LeetCode-Tree/Path%20Sum)
 * [Longest Univalue Path](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Tree/LeetCode-Tree/Longest%20Univalue%20Path)
+* [Binary Tree Preorder Traversal](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Tree/LeetCode-Tree/Binary%20Tree%20Preorder%20Traversal)
+* [Binary Tree Inorder Traversal](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Tree/LeetCode-Tree/Binary%20Tree%20Inorder%20Traversal)
+* [Binary Tree Postorder Traversal](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Tree/LeetCode-Tree/Binary%20Tree%20Postorder%20Traversal)
+* [Binary Tree Level Order Traversal](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Tree/LeetCode-Tree/Binary%20Tree%20Level%20Order%20Traversal)
+* [Convert Sorted Array to Binary Search Tree](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Tree/LeetCode-Tree/Convert%20Sorted%20Array%20to%20Binary%20Search%20Tree)
