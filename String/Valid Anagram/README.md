@@ -30,3 +30,22 @@ What if the inputs contain unicode characters? How would you adapt your solution
 2. 用 unordered_map<char, int> 关联性容器，第一个参数表示单词，第二个参数表示单词在字符串中出现次数
 3. 对字符串 s 遍历，单词出现就累加，对字符串 t 遍历，单词出现就累减
 4. 如果两个字符串的组合单词完全相同，则最后 unordered_map 的第二个属性就等于 0
+
+```C++
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        if (s.length() != t.length()) return false;
+        int count[26] = {0};
+        for (int i = 0; i < s.length(); i++) {
+            count[s[i] - 'a']++;
+            count[t[i] - 'a']--;
+        }
+        
+        for (int i : count) {
+            if (i) return false;
+        }
+        return true;
+    }
+};
+```
