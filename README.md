@@ -13,6 +13,8 @@ Solutions for some common data structure and algorithm problems written in C++ a
 
 ## [Bit Manipulation](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Bit%20Manipulation)
 
+## [Math](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Math)
+
 ## [Sort](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Sort)
 
 ## [Tree](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Tree)
