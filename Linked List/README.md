@@ -28,6 +28,10 @@
 * [Reverse Nodes in k-Group](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Reverse%20Nodes%20in%20k-Group)
 * [Merge k Sorted Lists](https://github.com/steveLauwh/Data-Structures-And-Algorithms/tree/master/Linked%20List/Merge%20k%20Sorted%20Lists)
 
+![](https://github.com/steveLauwh/Data-Structures-And-Algorithms/raw/master/image/Linked%20List(I).PNG)
+
+![](https://github.com/steveLauwh/Data-Structures-And-Algorithms/raw/master/image/Linked%20List(II).PNG)
+
 ## 链表的测试
 
 LinkedListTest.cpp
