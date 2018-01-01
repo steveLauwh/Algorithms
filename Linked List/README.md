@@ -32,6 +32,8 @@
 
 ![](https://github.com/steveLauwh/Data-Structures-And-Algorithms/raw/master/image/Linked%20List(II).PNG)
 
+![](https://github.com/steveLauwh/Data-Structures-And-Algorithms/raw/master/image/Linked%20List(III).PNG)
+
 ## 链表的测试
 
 LinkedListTest.cpp
