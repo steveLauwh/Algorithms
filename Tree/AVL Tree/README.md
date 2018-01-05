@@ -97,3 +97,4 @@ TreeNode* RightLeftRotate(TreeNode* root) {
 ## 参考资料
 
 * http://dongxicheng.org/structure/avl/
+* https://www.cnblogs.com/QG-whz/p/5167238.html
