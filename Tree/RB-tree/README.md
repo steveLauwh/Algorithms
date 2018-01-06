@@ -156,7 +156,7 @@ inline void _Rb_tree_rotate_right(_Rb_tree_node_base* __x, _Rb_tree_node_base*& 
 
 红黑树的插入相当于在二叉搜索树插入的基础上，为了重新恢复平衡，需要继续做调整(`_Rb_tree_rebalance`)操作。
 
-```
+```cpp
 // 从根节点出发
 void _M_insert(_Rb_tree_node<_Value>* node, _Rb_tree_node<_Value>*& root)
 {
