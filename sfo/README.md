@@ -8,3 +8,4 @@
 |递归和循环|斐波那契数列|[fibonacci](https://github.com/steveLauwh/Algorithms/blob/master/sfo/4.%20fibonacci.md)|
 |递归和循环|跳台阶|[jump floor](https://github.com/steveLauwh/Algorithms/blob/master/sfo/5.%20jump%20floor.md)|
 |栈和队列|用两个栈实现队列|[implement a queue with two stacks](https://github.com/steveLauwh/Algorithms/blob/master/sfo/6.%20implement%20a%20queue%20with%20two%20stacks.md)|
+|查找和排序|旋转数组的最小数字|[min number in rotate array](https://github.com/steveLauwh/Algorithms/blob/master/sfo/7.%20min%20number%20in%20rotate%20array.md)|
