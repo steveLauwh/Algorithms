@@ -11,3 +11,5 @@
 |查找和排序|旋转数组的最小数字|[min number in rotate array](https://github.com/steveLauwh/Algorithms/blob/master/sfo/7.%20min%20number%20in%20rotate%20array.md)|
 |递归和循环|变态跳台阶|[jump floor ii](https://github.com/steveLauwh/Algorithms/blob/master/sfo/8.%20jump%20floor%20ii.md)|
 |位运算|二进制中1的个数|[number of 1](https://github.com/steveLauwh/Algorithms/blob/master/sfo/9.%20number%20of%201.md)|
+|树|重建二叉树|[reconstruct binary tree](https://github.com/steveLauwh/Algorithms/blob/master/sfo/10.%20reconstruct%20binary%20tree.md)|
+|代码的鲁棒性|链表中倒数第k个结点|[find kth to tail](https://github.com/steveLauwh/Algorithms/blob/master/sfo/11.%20find%20kth%20to%20tail.md)|
