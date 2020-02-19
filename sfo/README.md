@@ -15,3 +15,4 @@
 |代码的鲁棒性|链表中倒数第k个结点|[find kth to tail](https://github.com/steveLauwh/Algorithms/blob/master/sfo/11.%20find%20kth%20to%20tail.md)|
 |代码的鲁棒性|反转链表|[reverse list](https://github.com/steveLauwh/Algorithms/blob/master/sfo/12.%20reverse%20list.md)|
 |递归和循环|矩形覆盖|[rect cover](https://github.com/steveLauwh/Algorithms/blob/master/sfo/13.%20rect%20cover.md)|
+|代码的完整性|调整数组顺序使奇数位于偶数前面|[reorder array](https://github.com/steveLauwh/Algorithms/blob/master/sfo/14.%20reorder%20array.md)|
