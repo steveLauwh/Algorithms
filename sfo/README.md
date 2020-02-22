@@ -18,3 +18,7 @@
 |代码的完整性|调整数组顺序使奇数位于偶数前面|[reorder array](https://github.com/steveLauwh/Algorithms/blob/master/sfo/14.%20reorder%20array.md)|
 |代码的完整性|数值的整数次方|[power](https://github.com/steveLauwh/Algorithms/blob/master/sfo/15.%20power.md)|
 |代码的鲁棒性|合并两个排序的链表|[merge](https://github.com/steveLauwh/Algorithms/blob/master/sfo/16.%20merge.md)|
+|面试思路|二叉树的镜像|[mirror](https://github.com/steveLauwh/Algorithms/blob/master/sfo/17.%20mirror.md)|
+|代码的鲁棒性|树的子结构|[has subtree](https://github.com/steveLauwh/Algorithms/blob/master/sfo/18.%20has%20subtree.md)|
+|举例让抽象具体化|从上往下打印二叉树|[print from top to bottom](https://github.com/steveLauwh/Algorithms/blob/master/sfo/19.%20print%20from%20top%20to%20bottom.md)|
+|举例让抽象具体化|栈的压入、弹出序列|[is pop order](https://github.com/steveLauwh/Algorithms/blob/master/sfo/20.%20is%20pop%20order.md)|
