@@ -27,7 +27,7 @@ Solutions for some common data structure and algorithm problems written in C++ a
 
 # Practice
 
-## [《剑指Offer》](https://github.com/steveLauwh/Algorithms/tree/master/sfo)
+### [《剑指Offer》](https://github.com/steveLauwh/Algorithms/tree/master/sfo)
 
 # Reference
 
