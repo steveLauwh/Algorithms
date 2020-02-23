@@ -10,8 +10,8 @@
 |栈和队列|6. 用两个栈实现队列|[implement a queue with two stacks](https://github.com/steveLauwh/Algorithms/blob/master/sfo/6.%20implement%20a%20queue%20with%20two%20stacks.md)|
 |查找和排序|7. 旋转数组的最小数字|[min number in rotate array](https://github.com/steveLauwh/Algorithms/blob/master/sfo/7.%20min%20number%20in%20rotate%20array.md)|
 |递归和循环|8. 变态跳台阶|[jump floor ii](https://github.com/steveLauwh/Algorithms/blob/master/sfo/8.%20jump%20floor%20ii.md)|
-|位运算|9. 二进制中1的个数|[number of 1](https://github.com/steveLauwh/Algorithms/blob/master/sfo/9.%20number%20of%201.md)|
-|树|10. 重建二叉树|[reconstruct binary tree](https://github.com/steveLauwh/Algorithms/blob/master/sfo/10.%20reconstruct%20binary%20tree.md)|
+|树|9. 重建二叉树|[reconstruct binary tree](https://github.com/steveLauwh/Algorithms/blob/master/sfo/9.%20reconstruct%20binary%20tree.md)|
+|位运算|10. 二进制中1的个数|[number of 1](https://github.com/steveLauwh/Algorithms/blob/master/sfo/10.%20number%20of%201.md)|
 |代码的鲁棒性|11. 链表中倒数第k个结点|[find kth to tail](https://github.com/steveLauwh/Algorithms/blob/master/sfo/11.%20find%20kth%20to%20tail.md)|
 |代码的鲁棒性|12. 反转链表|[reverse list](https://github.com/steveLauwh/Algorithms/blob/master/sfo/12.%20reverse%20list.md)|
 |递归和循环|13. 矩形覆盖|[rect cover](https://github.com/steveLauwh/Algorithms/blob/master/sfo/13.%20rect%20cover.md)|
