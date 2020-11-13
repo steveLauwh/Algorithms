@@ -43,5 +43,7 @@
 |知识迁移能力|39. 和为S的两个数字|[find numbers with sum](https://github.com/steveLauwh/Algorithms/blob/master/sfo/39.%20find%20numbers%20with%20sum.md)|
 |时间效率|40. 整数中1出现的次数（从1到n整数中1出现的次数）|[number of 1 between 1 and N](https://github.com/steveLauwh/Algorithms/blob/master/sfo/40.%20number%20of%201%20between%201%20and%20N.md)|
 |字符串|41. 左旋转字符串|[left rotate string](https://github.com/steveLauwh/Algorithms/blob/master/sfo/41.%20left%20rotate%20string.md)|
+|字符串|42. 翻转单词顺序列|[reverse sentence](https://github.com/steveLauwh/Algorithms/blob/master/sfo/42.%20reverse%20sentence.md)|
+|树和dfs|43. 平衡二叉树|[balanced binary tree](https://github.com/steveLauwh/Algorithms/blob/master/sfo/43.%20balanced%20binary%20tree.md)|
 
 
