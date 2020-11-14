@@ -49,5 +49,11 @@
 |穷举|45. 和为S的连续正数序列|[find continuous sequence](https://github.com/steveLauwh/Algorithms/blob/master/sfo/45.%20find%20continuous%20sequence.md)|
 |数学|46. 不用加减乘除做加法|[add](https://github.com/steveLauwh/Algorithms/blob/master/sfo/46.%20add.md)|
 |链表|47. 链表中环的入口结点|[entry node of loop](https://github.com/steveLauwh/Algorithms/blob/master/sfo/47.%20entry%20node%20of%20loop.md)|
-
+|数组|48. 数组中的逆序对|[inverse pairs](https://github.com/steveLauwh/Algorithms/blob/master/sfo/48.%20inverse%20pairs.md)|
+|字符串和数学|49. 把字符串转换成整数|[str to int](https://github.com/steveLauwh/Algorithms/blob/master/sfo/49.%20str%20to%20int.md)|
+|树|50. 对称的二叉树|[is symmetrical](https://github.com/steveLauwh/Algorithms/blob/master/sfo/50.%20is%20symmetrical.md)|
+|树|51. 二叉树的下一个结点|[get next](https://github.com/steveLauwh/Algorithms/blob/master/sfo/51.%20get%20next.md)|
+|字符串|52. 扑克牌顺子|[is continuous](https://github.com/steveLauwh/Algorithms/blob/master/sfo/52.%20is%20continuous.md)|
+|链表|53. 孩子们的游戏(圆圈中最后剩下的数)|[last remaining](https://github.com/steveLauwh/Algorithms/blob/master/sfo/53.%20last%20remaining.md)|
+|数组|54. 构建乘积数组|[multiply](https://github.com/steveLauwh/Algorithms/blob/master/sfo/54.%20multiply.md)|
 
