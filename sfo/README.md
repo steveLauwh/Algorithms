@@ -56,4 +56,16 @@
 |字符串|52. 扑克牌顺子|[is continuous](https://github.com/steveLauwh/Algorithms/blob/master/sfo/52.%20is%20continuous.md)|
 |链表|53. 孩子们的游戏(圆圈中最后剩下的数)|[last remaining](https://github.com/steveLauwh/Algorithms/blob/master/sfo/53.%20last%20remaining.md)|
 |数组|54. 构建乘积数组|[multiply](https://github.com/steveLauwh/Algorithms/blob/master/sfo/54.%20multiply.md)|
+|栈和树|55. 按之字形打印二叉树|[print](https://github.com/steveLauwh/Algorithms/blob/master/sfo/55.%20print.md)|
+|树|56. 二叉搜索树的第k个结点|[KthNode](https://github.com/steveLauwh/Algorithms/blob/master/sfo/56.%20KthNode.md)|
+|树和bfs|57. 把二叉树打印成多行|[print2](https://github.com/steveLauwh/Algorithms/blob/master/sfo/57.%20print2.md)|
+|字符串|58. 字符流中第一个不重复的字符|[first appearing once](https://github.com/steveLauwh/Algorithms/blob/master/sfo/58.%20first%20appearing%20once.md)|
+|堆和双指针|59. 滑动窗口的最大值|[max in windows](https://github.com/steveLauwh/Algorithms/blob/master/sfo/59.%20max%20in%20windows.md)|
+|数组|60. 机器人的运动范围|[moving count](https://github.com/steveLauwh/Algorithms/blob/master/sfo/60.%20moving%20count.md)|
+|字符串|61. 表示数值的字符串|[is numeric](https://github.com/steveLauwh/Algorithms/blob/master/sfo/61.%20is%20numeric.md)|
+|字符串|62. 正则表达式匹配|[match](https://github.com/steveLauwh/Algorithms/blob/master/sfo/62.%20match.md)|
+|dfs和回溯|63. 矩阵中的路径|[has path](https://github.com/steveLauwh/Algorithms/blob/master/sfo/63.%20has%20path.md)|
+|堆和排序|64. 数据流中的中位数|[get median](https://github.com/steveLauwh/Algorithms/blob/master/sfo/64.%20get%20median.md)|
+|队列和树|65. 序列化二叉树|[serialize](https://github.com/steveLauwh/Algorithms/blob/master/sfo/65.%20serialize.md)|
+|数组和贪心|67. 剪绳子|[cut rope](https://github.com/steveLauwh/Algorithms/blob/master/sfo/67.%20cut%20rope.md)|
 
