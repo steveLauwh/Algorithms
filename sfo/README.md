@@ -45,5 +45,9 @@
 |字符串|41. 左旋转字符串|[left rotate string](https://github.com/steveLauwh/Algorithms/blob/master/sfo/41.%20left%20rotate%20string.md)|
 |字符串|42. 翻转单词顺序列|[reverse sentence](https://github.com/steveLauwh/Algorithms/blob/master/sfo/42.%20reverse%20sentence.md)|
 |树和dfs|43. 平衡二叉树|[balanced binary tree](https://github.com/steveLauwh/Algorithms/blob/master/sfo/43.%20balanced%20binary%20tree.md)|
+|链表|44. 删除链表中重复的结点|[delete duplication](https://github.com/steveLauwh/Algorithms/blob/master/sfo/44.%20delete%20duplication.md)|
+|穷举|45. 和为S的连续正数序列|[find continuous sequence](https://github.com/steveLauwh/Algorithms/blob/master/sfo/45.%20find%20continuous%20sequence.md)|
+|数学|46. 不用加减乘除做加法|[add](https://github.com/steveLauwh/Algorithms/blob/master/sfo/46.%20add.md)|
+|链表|47. 链表中环的入口结点|[entry node of loop](https://github.com/steveLauwh/Algorithms/blob/master/sfo/47.%20entry%20node%20of%20loop.md)|
 
 
