@@ -67,5 +67,6 @@
 |dfs和回溯|63. 矩阵中的路径|[has path](https://github.com/steveLauwh/Algorithms/blob/master/sfo/63.%20has%20path.md)|
 |堆和排序|64. 数据流中的中位数|[get median](https://github.com/steveLauwh/Algorithms/blob/master/sfo/64.%20get%20median.md)|
 |队列和树|65. 序列化二叉树|[serialize](https://github.com/steveLauwh/Algorithms/blob/master/sfo/65.%20serialize.md)|
+|分治|66. 二叉搜索树与双向链表|[convert](https://github.com/steveLauwh/Algorithms/blob/master/sfo/66.%20convert.md)|
 |数组和贪心|67. 剪绳子|[cut rope](https://github.com/steveLauwh/Algorithms/blob/master/sfo/67.%20cut%20rope.md)|
 
